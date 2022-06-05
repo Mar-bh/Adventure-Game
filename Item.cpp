@@ -43,7 +43,7 @@ void Item::setCaracteristica(std::string _caracteristica){
 void Item::descripcion(){
     std::cout << "------------ DESCRIPCION DEL ITEM ------------" << std::endl;
     std::cout << "Nombre del Item: " << item << std::endl;
-    std::cout << "caracteristicas:"  << caracteristica << std::endl;
+    std::cout << "Caracteristicas:"  << caracteristica << std::endl;
     std::cout << "Valor:"  << puntos << " puntos" <<  std::endl;
     std::cout << "---------------------------------" << std::endl;
 }
