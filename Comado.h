@@ -2,7 +2,7 @@
 #define COMANDO_H
 #include <iostream>
 
-class Commando {
+class Comando {
     public:
         Comando();
         Comando(std::string, std::string);
