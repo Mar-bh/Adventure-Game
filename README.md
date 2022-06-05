@@ -15,3 +15,19 @@ Muevete es para viajar entre zonas del parque, solo puedes moverte de manera que
 Pelea es para cuando entres en una zona con un Juan.
 
 Tu Nico, tienes un inventario donde puedes consultar tus objetos.
+
+Mar
+comando
+AyudaComando
+MovientoComando
+PeleaComando
+Lugar
+ListaPalabras
+
+Mary
+Personajes
+Enemigo
+Pollos
+Items
+Parser
+Historia
