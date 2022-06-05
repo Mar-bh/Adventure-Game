@@ -16,7 +16,7 @@ Pelea es para cuando entres en una zona con un Juan.
 
 Tu Nico, tienes un inventario donde puedes consultar tus objetos.
 
-Mar
+Mar     Rama: instrucciones
 comando
 AyudaComando
 MovientoComando
@@ -24,7 +24,7 @@ PeleaComando
 Lugar
 ListaPalabras
 
-Mary
+Mary    Rama: personajesItems
 Personajes
 Enemigo
 Pollos
