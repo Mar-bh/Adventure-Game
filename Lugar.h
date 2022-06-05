@@ -9,11 +9,15 @@ class Lugar {
         Lugar();
         Lugar(std::string, bool);
         Lugar* getSalida(std::string);
-        
+        Item getRecompensa(int);
+        void setRecompensa(int, Item);
+        void setSalida(char, Lugar);
+        std::string getDescripcion();
+
     private:
         Lugar* salidas[4];
-        bool abierto;
-
+        std::string descripcion;
+        Item* recompensa[];
 
 }; 
 #endif
