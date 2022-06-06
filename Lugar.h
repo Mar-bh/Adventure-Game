@@ -1,6 +1,6 @@
 #ifndef LUGAR_H
 #define LUGAR_H
-
+#include "Item.h"
 #include <iostream>
 #include <vector>
 #include "Item.h"
