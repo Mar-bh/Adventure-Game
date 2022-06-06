@@ -9,12 +9,14 @@ class Lugar {
     public:
         Lugar();
         Lugar(std::string);
-        Lugar* getSalida(std::string);
+        Item* getItem(int);
+        void setItem(int, Item);
+        Lugar* getSalida(char);
         Item getRecompensa(int);
         void setRecompensa(int, Item);
         void setSalida(Lugar*,Lugar*,Lugar*,Lugar*);
         std::string getDescripcion();
-        int numSalida(std::string);
+        int numSalida(char);
 
     private:
         Lugar* salidas[4];
