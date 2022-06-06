@@ -32,3 +32,5 @@ Pollos
 Items
 Parser
 Historia
+
+debe de haber - herencia, polimorfismo, sobrecarga, manejo de excepciones, que tenga el funcionamiento que esté pidiendo, 
