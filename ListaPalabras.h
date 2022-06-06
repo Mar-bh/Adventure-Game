@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include "Comando.h"
 
 class ListaPalabras{
     public:

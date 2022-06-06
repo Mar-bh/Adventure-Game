@@ -75,6 +75,6 @@ void Lugar::descripcionLarga(){
 
 }
 
-int Lugar::cantidadLLaves(){
+int Lugar::cantidadLlaves(){
     return llaves;
 }
