@@ -7,16 +7,15 @@
 
 class Lugar {
     public:
-        Lugar();
-        Lugar(std::string);
-        Item* getItem(int);
-        void setItem(int, Item);
-        Lugar* getSalida(char);
-        Item getRecompensa(int);
-        void setRecompensa(int, Item);
-        void setSalida(Lugar*,Lugar*,Lugar*,Lugar*);
-        std::string getDescripcion();
-        int numSalida(char);
+        Lugar(); //l
+        Lugar(std::string); //listo
+        Lugar* getSalida(char); //listo
+        Item* getRecompensa(int);
+        void setRecompensa(std::vector <Item*>); //listo
+        void setSalida(Lugar*,Lugar*,Lugar*,Lugar*); //listo
+        void descripcion(); //listo
+        std::string getDescripcion(); //listo
+        int numSalida(char); //listo
 
     private:
         Lugar* salidas[4];
