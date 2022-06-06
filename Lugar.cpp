@@ -65,7 +65,7 @@ Item* Lugar::getRecompensa(int num){
 
 }
 
-void Lugar::descripcion(){
+void Lugar::descripcionLarga(){
     std::cout << descripcion << std::endl;
     std::cout << "En esta zona del parque tenemos: " << std::endl;
     std::cout << "Un enemigo /nUn pollo. /nAl rescatar al pollo podrás obtener lo siguiente:" << std::endl;
@@ -73,4 +73,8 @@ void Lugar::descripcion(){
         std::cout <<"/t" << recompensa[i]->getItem() << std::endl;
     }
 
+}
+
+int Lugar::cantidadLLaves(){
+    return llaves;
 }

@@ -10,18 +10,18 @@ class Lugar {
         Lugar(); //l
         Lugar(std::string); //listo
         Lugar* getSalida(char); //listo
-        Item* getRecompensa(int);
+        Item* getRecompensa(int); //listo
         void setRecompensa(std::vector <Item*>); //listo
         void setSalida(Lugar*,Lugar*,Lugar*,Lugar*); //listo
-        void descripcion(); //listo
+        void descripcionLarga(); //listo
         std::string getDescripcion(); //listo
         int numSalida(char); //listo
+        int cantidadLlaves();
 
     private:
         Lugar* salidas[4];
         std::string descripcion;
         std::vector <Item*> recompensa;
         int llaves;
-
 }; 
 #endif
