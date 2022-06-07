@@ -25,9 +25,8 @@ void Comando::setSegPalabra(std::string seg){
 bool Comando::tieneSegPalabra(){
     bool res = false;
     if(segPalabra!=""){
-        res = tru;
+        res = true;
     }
     return res ;
 }
-#endif 
 
