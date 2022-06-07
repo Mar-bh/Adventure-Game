@@ -1,24 +1,21 @@
 #ifndef POLLOS_H
 #define POLLOS_H
-#include <iostream>
+#include "Personaje.h"
 
-class Pollos
+class Pollos:public Personaje
 {
 private:
-    std::string pollos;
-    std::string caracteristica;
-    int puntos;
+    std::string color;
+    int valor;
 public:
     Pollos();
-    Pollos(int,std::string,std::string);
-    ~Pollos();
-    std::string getPollos() const; 
-    std::string getCaracteristica() const; 
-    int getPuntos()const;
-    void setPollos(std::string);
-    void setCaracteristica(std::string);
-    void setPuntos(int);
-    void descripcion();
+    Pollos(std::string,int,Lugar,std::vector <Item*>,int,std::string);
+    std::string getColor() const; 
+    int getValor() const; 
+    void setNombre(Personaje);
+    void setColor(std::string);
+    void setValor(int);
+    void caracteristicas();
 };
 
 #endif 
