@@ -54,13 +54,15 @@ void Personaje::setInventario(std::vector <Item*> _inventario);
     inventario = _inventario;
 
 //ver como funciona el vector y desplegar los items que poseemos
-//void Personaje::muestraInventario(inventario); //para mostrar el inventario necesitamos acceder al vector inventario y observar todos los items que tenemos, es un vector porque podemos agregar mas items.
+//void Personaje::muestraInventario(inventario); //para mostrar el inventario necesitamos acceder al vector
+// inventario y observar todos los items que tenemos, es un vector porque podemos agregar mas items.
 
 //Agregar items al vector inventario
 //void Personaje::agregaItems(Item);// agregamos mas items al inventario
+
 void Personaje::pelea();// opciones de pelea
     //aqui va mucho texto sobre las opciones de pelea, maybe un switch case
-    
+
 
 void Personaje::consulta(){
     std::cout << "------------ DESCRIPCION DEL Personaje ------------" << std::endl;
