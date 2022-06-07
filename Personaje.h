@@ -11,7 +11,7 @@ private:
     int puntaje;
     //Personaje* inventario[1];
     std::vector <Item*> inventario;
-    Lugar descripcion;
+    Lugar posicion;
 
 public:
     Personaje();
@@ -19,12 +19,13 @@ public:
     ~Personaje();//
     std::string getNombre() const; 
     int getPuntaje(); 
-    Lugar getDescripcion();
+    Lugar getPosicion();
     Item* getInventario();
     void setPersonaje(std::string);
-    void setDescripcion(std::string);
+    void setPosicion(Lugar);
     void setPuntos(int);
     void setInventario(std::vector <Item*>);
+    std::string mostrarLugar();
     void muestraInventario(); //para mostrar el inventario necesitamos acceder al vector inventario y observar todos los items que tenemos, es un vector porque podemos agregar mas items.
     void agregaItems(Item);// agregamos mas items al inventario
     void consulta();/* consulta para poder ver el lugar en el que se encuentra por medio de posicion, consulta(posicion)?*/
