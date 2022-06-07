@@ -70,7 +70,7 @@ void Personaje::pelea(){// opciones de pelea
 void Personaje::consulta(){
     std::cout << "------------ DESCRIPCION DEL Personaje ------------" << std::endl;
     std::cout << "Nombre del Personaje: " << nombre << std::endl;
-    std::cout << "Inventario:"  << inventario << std::endl;
+    std::cout << "Cantidad en Inventario:"  << inventario.size() << std::endl;
     std::cout << "Valor:"  << puntaje << " puntos" <<  std::endl;
     std::cout << "Posicion:"  << posicion.getDescripcion() << std::endl;
     std::cout << "---------------------------------" << std::endl;
