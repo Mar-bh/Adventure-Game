@@ -1,6 +1,6 @@
 #include "Lugar.h"
 
-Lugar::Lugar(){ //copia de fabiola con cambio
+Lugar::Lugar(){ 
     descripcion = "Espacio del parque ";
     for(int i=0; i<4; i++){
         salidas[i]=nullptr;
@@ -8,7 +8,7 @@ Lugar::Lugar(){ //copia de fabiola con cambio
     llaves = 0;
 }
 
-Lugar::Lugar(std::string desc){ //copia de fabiola con cambio
+Lugar::Lugar(std::string desc){
     descripcion = desc;
     for(int i=0; i<4; i++){
         salidas[i]=nullptr;
@@ -16,7 +16,7 @@ Lugar::Lugar(std::string desc){ //copia de fabiola con cambio
     llaves = 0;
 }
 
-Lugar* Lugar::getSalida(char dir){ //copia de fabiola con cambio
+Lugar* Lugar::getSalida(char dir){ 
     int num=numSalida(dir);
     if(num>=0){
         return salidas[num];
@@ -24,7 +24,7 @@ Lugar* Lugar::getSalida(char dir){ //copia de fabiola con cambio
     return nullptr;
 }
 
-void Lugar::setSalida(Lugar* n, Lugar* s, Lugar* e, Lugar* o){ //copia de fabiola
+void Lugar::setSalida(Lugar* n, Lugar* s, Lugar* e, Lugar* o){ 
     salidas[0]=n;
     salidas[1]=s;
     salidas[2]=e;
