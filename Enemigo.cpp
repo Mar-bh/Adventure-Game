@@ -1,31 +1,23 @@
 #include "Enemigo.h"   
 
-Enemigo::Enemigo(std::string _nombre,int _puntaje,Lugar _posicion,std::vector <Item*> _inventario,int _valor, std::string _color):Personaje(_nombre,_puntaje,_posicion,_inventario){
-    valor = _valor;
-    color = _color;
+Enemigo::Enemigo(std::string _nombre,int _puntaje,Lugar _posicion,std::vector <Item*> _inventario,int _nivelPeligro):Personaje(_nombre,_puntaje,_posicion,_inventario){
+    nivelPeligro = _nivelPeligro;
 }
 
-int Enemigo::getValor()const{
-    return valor;
-}
-
-std::string Enemigo::getColor()const{
-    return color;
+int Enemigo::getnivelPeligro()const{
+    return nivelPeligro;
 }
 
 
-void Enemigo::setValor(int _valor){
-    valor = _valor;
-}
-
-void Enemigo::setColor(std::string _color){
-    color = _color;
+void Enemigo::setnivelPeligro(int _nivelPeligro){
+    nivelPeligro = _nivelPeligro;
 }
 
 void Enemigo::caracteristicas(){
-    std::cout << "------------ DESCRIPCION DEL POLLO ------------" << std::endl;
-    std::cout << "Nombre del Pollo: " << getNombre << std::endl;
-    std::cout << "Color del pollo:"  << color << std::endl;
-    std::cout << "Valor:"  << valor << " puntos" <<  std::endl;
+    std::cout << "------------ ENEMIGO ------------" << std::endl;
+    std::cout << "Estas en: " << getPosicion << std::endl;    
+    std::cout << "Nivel de peligro del enemigo: " << nivelPeligro << std::endl;
+    std::cout << "Hola Nico, soy: " << getNombre << std::endl;
+    std::cout << "Como veras, mi puntaje es de:"  << getPuntaje << std::endl;
     std::cout << "---------------------------------" << std::endl;
 }
