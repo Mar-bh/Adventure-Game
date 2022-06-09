@@ -19,7 +19,6 @@ public:
     void setPosicion(Personaje);
     void dialogo(); 
     void quitaPuntaje();
-    void caracteristicas();
 };
 
 #endif 
