@@ -68,12 +68,12 @@ void Personaje::pelea(int golpe,Enemigo nombreEnemigo){// opciones de pelea
         switch(golpe){
             case 1:
                 std::cout<<"---------------------------------------------------------------------"<<std::endl;
-                //std::cout<<nombreEnemigo.getNombre()<<"Ha sido herido de una patada y arañazo"<<std::endl;
+                //std::cout<<nombreEnemigo.getNombre()<<" ha sido herido de una patada y arañazo"<<std::endl;
                 std::cout<<"---------------------------------------------------------------------"<<std::endl; 
                 break;
             case 2:
                 std::cout<<"---------------------------------------------------------------------"<<std::endl;
-               // std::cout<<"Haz utilizado tus items en "<<nombreEnemigo.getNombre()<<std::endl;
+                //std::cout<<"Haz utilizado tus items en "<<nombreEnemigo.getNombre()<<std::endl;
                 std::cout<<"---------------------------------------------------------------------"<<std::endl; 
                 break;
             case 3:
