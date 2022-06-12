@@ -7,6 +7,7 @@ class Comando {
         Comando();
         Comando(std::string, std::string);
         std::string getComando() const;
+        std::string getSegPalabra() const;
         void setSegPalabra(std::string);
         bool tieneSegPalabra();
         virtual void ejecuta() = 0;

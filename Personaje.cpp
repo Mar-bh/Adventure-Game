@@ -62,8 +62,19 @@ std::string Personaje::mostrarLugar(){
 //void Personaje::muestraInventario(inventario); //para mostrar el inventario necesitamos acceder al vector
 // inventario y observar todos los items que tenemos, es un vector porque podemos agregar mas items.
 
+void Personaje::muestraInventario(){
+    std::cout << "------------ INVENTARIO ------------" << std::endl;
+    for(int i = 0; i < inventario.size(); i++){
+        inventario[i] ->descripcion();
+     }
+    std::cout << "------------ FIN INVENTARIO ------------" << std::endl;
+}
 //Agregar items al vector inventario
 //void Personaje::agregaItems(Item);// agregamos mas items al inventario
+void Personaje::agregaItems(Item* nuevoItem){
+    inventario.push_back(nuevoItem);
+}
+
 void Personaje::pelea(){// opciones de pelea
     //aqui va mucho texto sobre las opciones de pelea, maybe un switch case
 }   
