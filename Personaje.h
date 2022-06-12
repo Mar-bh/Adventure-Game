@@ -28,7 +28,7 @@ public:
     std::string mostrarLugar();
     void muestraInventario(); //para mostrar el inventario necesitamos acceder al vector inventario y observar todos los items que tenemos, es un vector porque podemos agregar mas items.
     void agregaItems(Item);// agregamos mas items al inventario
-    void consulta();// consulta para poder ver el lugar en el que se encuentra por medio de posicion, consulta(posicion)?
+    void consulta();/* consulta para poder ver el lugar en el que se encuentra por medio de posicion, consulta(posicion)?*/
     void pelea();// opciones de pelea
 };
 

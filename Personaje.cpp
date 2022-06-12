@@ -59,7 +59,8 @@ std::string Personaje::mostrarLugar(){
 }
 
 //ver como funciona el vector y desplegar los items que poseemos
-//void Personaje::muestraInventario(inventario); //para mostrar el inventario necesitamos acceder al vector inventario y observar todos los items que tenemos, es un vector porque podemos agregar mas items.
+//void Personaje::muestraInventario(inventario); //para mostrar el inventario necesitamos acceder al vector
+// inventario y observar todos los items que tenemos, es un vector porque podemos agregar mas items.
 
 //Agregar items al vector inventario
 //void Personaje::agregaItems(Item);// agregamos mas items al inventario
