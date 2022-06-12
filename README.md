@@ -24,8 +24,8 @@ comando
 AyudaComando
 MovientoComando
 PeleaComando
-Lugar
-ListaPalabras
+Lugar  listo
+ListaPalabras listo
 Le agrego a lugar la cantidad de llaves que necesita la zona
 
 Mary    Rama: personajesItems
