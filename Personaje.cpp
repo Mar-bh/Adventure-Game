@@ -64,21 +64,21 @@ std::string Personaje::mostrarLugar(){
 
 //Agregar items al vector inventario
 //void Personaje::agregaItems(Item);// agregamos mas items al inventario
-void Personaje::pelea(int golpe,std::string nombreEnemigo){// opciones de pelea
+void Personaje::pelea(int golpe,Enemigo nombreEnemigo){// opciones de pelea
         switch(golpe){
             case 1:
                 std::cout<<"---------------------------------------------------------------------"<<std::endl;
-                std::cout<<nombreEnemigo<<"Ha sido herido de una patada y arañazo"<<std::endl;
+                //std::cout<<nombreEnemigo.getNombre()<<"Ha sido herido de una patada y arañazo"<<std::endl;
                 std::cout<<"---------------------------------------------------------------------"<<std::endl; 
                 break;
             case 2:
                 std::cout<<"---------------------------------------------------------------------"<<std::endl;
-                std::cout<<"Haz utilizado tus items en "<<nombreEnemigo<<std::endl;
+               // std::cout<<"Haz utilizado tus items en "<<nombreEnemigo.getNombre()<<std::endl;
                 std::cout<<"---------------------------------------------------------------------"<<std::endl; 
                 break;
             case 3:
                 std::cout<<"---------------------------------------------------------------------"<<std::endl;
-                std::cout<<"Has mordido con rabia a "<<nombreEnemigo<<std::endl;
+                //std::cout<<"Has mordido con rabia a "<<nombreEnemigo<<std::endl;
                 std::cout<<"---------------------------------------------------------------------"<<std::endl; 
                 break;
             default:
