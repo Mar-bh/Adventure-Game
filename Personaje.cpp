@@ -75,10 +75,6 @@ void Personaje::agregaItems(Item* nuevoItem){
     inventario.push_back(nuevoItem);
 }
 
-void Personaje::pelea(){// opciones de pelea
-    //aqui va mucho texto sobre las opciones de pelea, maybe un switch case
-}   
-
 void Personaje::consulta(){
     std::cout << "------------ DESCRIPCION DEL Personaje ------------" << std::endl;
     std::cout << "Nombre del Personaje: " << nombre << std::endl;
