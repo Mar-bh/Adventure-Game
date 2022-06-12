@@ -1,16 +1,9 @@
-#ifndef PELEACOMANDO_H
-#define PELEACOMANDO_H
-#include <iostream>
-#include "Personaje.h"
-#include "Comando.h"
+#include "PeleaComando.h"
 
-class PeleaComando:public Comando{
-    public:
-        PeleaComando(Personaje*, Personaje*);
-        void ejecuta();
-    private:
-        Personaje* jugador;
+PeleaComando::PeleaComando(Personaje* _jugador){
+    jugador = _jugador;
+}
 
-};
+void ejecuta(){
 
-#endif
+}
