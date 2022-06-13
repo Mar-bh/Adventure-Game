@@ -1,6 +1,6 @@
 #include "Enemigo.h"   
 
-Enemigo::Enemigo(std::string _nombre,int _puntaje,Lugar _posicion,std::vector <Item*> _inventario,int _nivelPeligro):Personaje(_nombre,_puntaje,_posicion,_inventario){
+Enemigo::Enemigo(std::string _nombre,int _puntaje,Lugar* _posicion,std::vector <Item*> _inventario,int _nivelPeligro):Personaje(_nombre,_puntaje,_posicion,_inventario){
     nivelPeligro = _nivelPeligro;
 }
 

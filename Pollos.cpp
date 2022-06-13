@@ -4,7 +4,7 @@ Pollos::Pollos(){
     valor = 1;
     color = "azul";
 }
-Pollos::Pollos(std::string _nombre,int _puntaje,Lugar _posicion,std::vector <Item*> _inventario,int _valor, std::string _color):Personaje(_nombre,_puntaje,_posicion,_inventario) 
+Pollos::Pollos(std::string _nombre,int _puntaje,Lugar* _posicion,std::vector <Item*> _inventario,int _valor, std::string _color):Personaje(_nombre,_puntaje,_posicion,_inventario) 
 {
     valor = _valor;
     color = _color;

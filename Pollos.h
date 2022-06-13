@@ -9,7 +9,7 @@ private:
     int valor;
 public:
     Pollos();
-    Pollos(std::string _nombre,int _puntaje,Lugar _posicion,std::vector <Item*> _inventario,int _valor, std::string _color);
+    Pollos(std::string _nombre,int _puntaje,Lugar* _posicion,std::vector <Item*> _inventario,int _valor, std::string _color);
     std::string getColor() const; 
     int getValor() const; 
     std::string getNombre()const; // nombre
