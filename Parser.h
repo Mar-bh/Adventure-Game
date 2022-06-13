@@ -1,10 +1,9 @@
 #ifndef PARSER_H
 #define PARSER_H
-
 #include <iostream>
 #include "ListaPalabras.h"
 
-class Parser{
+class Parser {
     public:
         Parser();
         Parser(ListaPalabras*);
@@ -13,5 +12,4 @@ class Parser{
     private:
         ListaPalabras* comandos;
 };
-
 #endif //PARSER_H
