@@ -12,18 +12,18 @@ private:
     int puntaje;
     //Personaje* inventario[1];
     std::vector <Item*> inventario;
-    Lugar posicion;
+    Lugar* posicion;
 
 public:
     Personaje();
-    Personaje(std::string,int,Lugar,std::vector <Item*>);
+    Personaje(std::string,int,Lugar*,std::vector <Item*>);
     ~Personaje();//
     std::string getNombre() const; 
     int getPuntaje(); 
-    Lugar getPosicion();
+    Lugar* getPosicion();
     Item* getInventario();
     void setPersonaje(std::string);
-    void setPosicion(Lugar);
+    void setPosicion(Lugar*);
     void setPuntos(int);
     void setInventario(std::vector <Item*>);
     std::string mostrarLugar();
@@ -31,6 +31,8 @@ public:
     void agregaItems(Item*);// agregamos mas items al inventario
     void consulta();/* consulta para poder ver el lugar en el que se encuentra por medio de posicion, consulta(posicion)?*/
     void pelea(int, Enemigo);// opciones de pelea
+    bool camina(char);
+    int buscaLLaves();
 };
 
 #endif 

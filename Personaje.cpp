@@ -5,12 +5,12 @@ Personaje::Personaje(){
     nombre = "Nico"; 
     puntaje = 100;
     inventario.clear();
-    posicion = Lugar("donde estas?");
+    posicion -> setDescripcion("");
 }
 
 Personaje::~Personaje(){}
 
-Personaje::Personaje(std::string _nombre,int _puntaje,Lugar _posicion,std::vector <Item*> _inventario) 
+Personaje::Personaje(std::string _nombre,int _puntaje,Lugar* _posicion,std::vector <Item*> _inventario) 
 {
     nombre = _nombre;
     puntaje = _puntaje;
@@ -30,7 +30,7 @@ int Personaje::getPuntaje(){
 
 /*get posicion, Composicion de Lugar; obtener las caracteristicas
 de Lugar y llamarlo posicion, posicion*/
-Lugar Personaje::getPosicion(){
+Lugar* Personaje::getPosicion(){
     return posicion;
 }
 
@@ -45,7 +45,7 @@ void Personaje::setPuntos(int _puntaje){
 //duda sobre la composicion, queremos obtener la posicion del personaje por medio
 // del metodo descripcion de Lugar; solo queremos desplegar un metodo de lugar en nuestro cpp de personaje,
 // y llamarlo posicion, para consultarlo despues en el metodo de consulta del personaje.
-void Personaje::setPosicion(Lugar _posicion){
+void Personaje::setPosicion(Lugar* _posicion){
     posicion = _posicion;
 }
 
@@ -55,7 +55,7 @@ void Personaje::setInventario(std::vector <Item*> _inventario){
 }
 
 std::string Personaje::mostrarLugar(){
-    return posicion.getDescripcion();
+    return posicion -> getDescripcion();
 }
 
 //ver como funciona el vector y desplegar los items que poseemos
@@ -102,6 +102,32 @@ void Personaje::consulta(){
     std::cout << "Nombre del Personaje: " << nombre << std::endl;
     std::cout << "Cantidad en Inventario:"  << inventario.size() << std::endl;
     std::cout << "Valor:"  << puntaje << " puntos" <<  std::endl;
-    std::cout << "Posicion:"  << posicion.getDescripcion() << std::endl;
+    std::cout << "Posicion:"  << posicion -> getDescripcion() << std::endl;
     std::cout << "---------------------------------" << std::endl;
+}
+
+int Personaje::buscaLLaves(){
+    int cantidadLlaves = 0;
+    for(int i=0; i < inventario.size(); i++){
+        if(inventario[i] -> getItem() == "Llave"){
+            cantidadLlaves += 1;
+        }
+    }
+
+    return cantidadLlaves;
+}
+
+bool Personaje::camina(char dir){
+    Lugar* nuevoLugar= posicion-> getSalida(dir);
+    if (nuevoLugar!=nullptr && nuevoLugar -> cantidadLlaves() == 0){
+        setPosicion(nuevoLugar);
+        return true;    
+    }
+    else if (nuevoLugar!=nullptr && nuevoLugar-> cantidadLlaves() == 4){
+        if (buscaLLaves() == 4){
+            setPosicion(nuevoLugar);
+            return true;
+        }
+    }
+    return false;
 }
