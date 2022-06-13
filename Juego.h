@@ -24,8 +24,9 @@ class Juego{
     private:
         Parser parser;
         Personaje* jugador;
-        Pollos* pollo1,pollo2,pollo3,pollo4;
-        Enemigo* rival1,rival2,rival3,rival4,rivalFinal;
+        Pollos *pollo1,*pollo2,*pollo3,*pollo4;
+        Enemigo *rival1, *rival2,*rival3,*rival4,*rivalFinal;
         Lugar *plazaPrincipal, *zonaJuegos, *lago, *zonaPicnic, *areneros, *arbolCaido;
+
 };
 #endif 
