@@ -8,7 +8,7 @@
 class Lugar {
     public:
         Lugar(); //l
-        Lugar(std::string); //listo
+        Lugar(std::string,int); //listo
         Lugar* getSalida(char); //listo
         Item* getRecompensa(int); //listo
         void setRecompensa(std::vector <Item*>); //listo

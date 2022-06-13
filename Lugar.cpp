@@ -8,12 +8,12 @@ Lugar::Lugar(){
     llaves = 0;
 }
 
-Lugar::Lugar(std::string desc){
+Lugar::Lugar(std::string desc, int _llave){
     descripcion = desc;
     for(int i=0; i<4; i++){
         salidas[i]=nullptr;
     }
-    llaves = 0;
+    llaves = _llave;
 }
 
 Lugar* Lugar::getSalida(char dir){ 
