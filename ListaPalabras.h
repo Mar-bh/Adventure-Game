@@ -2,6 +2,7 @@
 #define LISTAPALABRAS_H
 #include <iostream>
 #include <vector>
+#include <exception>
 #include <string>
 #include "Comando.h"
 
@@ -12,6 +13,7 @@ class ListaPalabras{
         int esComando(std::string);
         Comando* getComando(std::string);
         std::string todosLosComandos();
+        void comandoDesconocido(std::string);
 
     private:
         std::vector <std::string> palabras;

@@ -16,6 +16,13 @@ int ListaPalabras::esComando(std::string pal){
     return -1;
 }
 
+void ListaPalabras::comandoDesconocido(std::string pal){
+    int conocido = 0;
+    if (esComando(pal)==-1){
+        throw std::invalid_argument( "no ingresaste un comando valido" );
+    }
+}
+
 Comando* ListaPalabras::getComando(std::string pal){
     int pos=esComando(pal);
     if(pos>=0){
