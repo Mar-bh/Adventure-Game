@@ -13,7 +13,8 @@ class Lugar {
         Item* getRecompensa(int); //listo
         void setRecompensa(std::vector <Item*>); //listo
         void setSalida(Lugar*,Lugar*,Lugar*,Lugar*); //listo
-        void descripcionLarga(); //listo
+        void descripcionLarga(); //listo    
+        void setDescripcion(std::string);
         std::string getDescripcion(); //listo
         int numSalida(char); //listo
         int cantidadLlaves();

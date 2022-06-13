@@ -47,6 +47,9 @@ int Lugar::numSalida(char dir){
 
 }
 
+void Lugar::setDescripcion(std::string _desc){
+    descripcion = _desc;
+}
 std::string Lugar::getDescripcion(){
     return descripcion;
 }
