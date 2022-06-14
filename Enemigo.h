@@ -8,7 +8,7 @@ private:
     int nivelPeligro;
 public:
     Enemigo();
-    Enemigo(std::string _nombre,int _puntaje,Lugar* _posicion,std::vector <Item*> _inventario,int _nivelPeligro);
+    Enemigo(std::string,int,Lugar*,int );
     int getnivelPeligro() const; 
     void setnivelPeligro(int);    
     void dialogo(); 
