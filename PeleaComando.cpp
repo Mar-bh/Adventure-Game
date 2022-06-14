@@ -5,6 +5,6 @@ PeleaComando::PeleaComando(Personaje* _jugador, Enemigo* enemy){
     rival = enemy;
 }
 
-void ejecuta(){
-
+void PeleaComando::ejecuta(){
+    std::cout << "Pelea Comando prueba" << std::endl; //prueba
 }

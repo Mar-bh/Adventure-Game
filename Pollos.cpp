@@ -28,7 +28,7 @@ void Pollos::setColor(std::string _color){
 
 void Pollos::caracteristicas(){
     std::cout << "------------ DESCRIPCION DEL POLLO ------------" << std::endl;
-    std::cout << "Nombre del Pollo: " << getNombre() << std::endl;
+    //std::cout << "Nombre del Pollo: " << getNombre() << std::endl;
     std::cout << "Color del pollo:"  << color << std::endl;
     std::cout << "Valor:"  << valor << " puntos" <<  std::endl;
     std::cout << "---------------------------------" << std::endl;
