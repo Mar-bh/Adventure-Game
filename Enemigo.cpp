@@ -25,3 +25,4 @@ void Enemigo::dialogo(){
 void Enemigo::quitaPuntaje(){
     
 }
+

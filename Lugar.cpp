@@ -54,10 +54,8 @@ std::string Lugar::getDescripcion(){
     return descripcion;
 }
 
-void Lugar::setRecompensa(std::vector <Item*> premio){ //un arreglo para hacerle pushback 
-    for(int i= 0; i <= premio.size(); i++){
-        recompensa.push_back(premio.at(i));
-    }
+void Lugar::setRecompensa(Item* premio){ //un arreglo para hacerle pushback 
+    recompensa.push_back(premio);
 }
 
 Item* Lugar::getRecompensa(int num){

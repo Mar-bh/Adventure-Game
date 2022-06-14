@@ -27,6 +27,7 @@ class Juego{
         Pollos*  pollitos[4]; //*pollo1,*pollo2,*pollo3,*pollo4;
         Enemigo* rivales[5];//        *rival1, *rival2,*rival3,*rival4,*rivalFinal;
         Lugar* zonas[6];  //*plazaPrincipal, *zonaJuegos, *lago, *zonaPicnic, *areneros, *arbolCaido;
+        Item* llaves[4];
 
 };
 #endif 
