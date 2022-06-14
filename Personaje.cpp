@@ -10,11 +10,11 @@ Personaje::Personaje(){
 
 Personaje::~Personaje(){}
 
-Personaje::Personaje(std::string _nombre,int _puntaje,Lugar* _posicion,std::vector <Item*> _inventario) 
+Personaje::Personaje(std::string _nombre,int _puntaje,Lugar* _posicion) //,std::vector <Item*> _inventario vector vacio | metodo agregar item
 {
     nombre = _nombre;
     puntaje = _puntaje;
-    inventario = _inventario;
+    // inventario = _inventario; quitar
     posicion = _posicion;
 }
 
@@ -74,21 +74,27 @@ void Personaje::muestraInventario(){
 void Personaje::agregaItems(Item* nuevoItem){
     inventario.push_back(nuevoItem);
 }
-void Personaje::pelea(int golpe,Enemigo nombreEnemigo){// opciones de pelea
+
+// borrar lo del enemigo y ponerlo en el personaje que gano; quitar o borrar item (para cuando el personaje obtiene un item)
+// vector<> item.     item.erase(i) //iterador para determinar la posicion a borrar erase de vectores.
+//item.clear()
+
+
+void Personaje::pelea(int golpe,Personaje& nombreEnemigo){// opciones de pelea
         switch(golpe){
             case 1:
                 std::cout<<"---------------------------------------------------------------------"<<std::endl;
-                //std::cout<<nombreEnemigo.getNombre()<<" ha sido herido de una patada y arañazo"<<std::endl;
+                std::cout<<nombreEnemigo.getNombre()<<" ha sido herido de una patada y arañazo"<<std::endl;
                 std::cout<<"---------------------------------------------------------------------"<<std::endl; 
                 break;
             case 2:
                 std::cout<<"---------------------------------------------------------------------"<<std::endl;
-                //std::cout<<"Haz utilizado tus items en "<<nombreEnemigo.getNombre()<<std::endl;
+                std::cout<<"Haz utilizado tus items en "<<nombreEnemigo.getNombre()<<std::endl;
                 std::cout<<"---------------------------------------------------------------------"<<std::endl; 
                 break;
             case 3:
                 std::cout<<"---------------------------------------------------------------------"<<std::endl;
-                //std::cout<<"Has mordido con rabia a "<<nombreEnemigo<<std::endl;
+                std::cout<<"Has mordido con rabia a "<<nombreEnemigo.getNombre()<<std::endl;
                 std::cout<<"---------------------------------------------------------------------"<<std::endl; 
                 break;
             default:
