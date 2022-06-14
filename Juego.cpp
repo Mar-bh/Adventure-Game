@@ -5,7 +5,7 @@ Juego::Juego(){
     creaComandos();
 }
 
-void Juego::creaElementos(){
+void Juego::creaComandos(){
     ListaPalabras* comandos=parser.getComandos();
     comandos->agregaComando("movimiento", new MovimientoComando(jugador));
     comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[0]));

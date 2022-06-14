@@ -2,8 +2,7 @@
 #define ENEMIGO_H
 #include "Personaje.h"
 
-class Enemigo:public Personaje
-{
+class Enemigo:public Personaje{
 private:
     int nivelPeligro;
 public:
