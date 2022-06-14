@@ -20,14 +20,14 @@ int main(){
     
 
 
-    // Personaje personaje1("Nico",200,primerLugar,inventario);
-    // Enemigo enemigo1("Juan",100,personaje1.getPosicion(),inventario,5); 
-    // cout<<typeid(enemigo1).name();
-    // cout<<"---------------------------------------------------------------------"<<endl;
-    // cout<<"Hola "<<personaje1.getNombre()<<" salva a los pollos"<<endl;
-    // cout<<"---------------------------------------------------------------------"<<endl;
-    // cout<<personaje1.getNombre()<<" tienes que pelear con el primer enemigo en "<<primerLugar.getDescripcion()<<endl;
-    // cout<<"---------------------------------------------------------------------"<<endl;
+    Personaje personaje1("Nico",200,primerLugar,inventario);
+    Enemigo enemigo1("Juan",100,personaje1.getPosicion(),inventario,5); 
+    cout<<typeid(enemigo1).name();
+    cout<<"---------------------------------------------------------------------"<<endl;
+    cout<<"Hola "<<personaje1.getNombre()<<" salva a los pollos"<<endl;
+    cout<<"---------------------------------------------------------------------"<<endl;
+    cout<<personaje1.getNombre()<<" tienes que pelear con el primer enemigo en "<<primerLugar.getDescripcion()<<endl;
+    cout<<"---------------------------------------------------------------------"<<endl;
 
     int golpes;
     //string nombreEnemigo;
