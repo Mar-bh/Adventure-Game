@@ -1,14 +1,9 @@
 #include <string>
 #include <vector>
-//#include <sstream>
+#include <sstream>
 //#include <fstream>
 #include <iostream>
-#include "Personaje.h"
-#include "Enemigo.h"
-#include "Pollos.h"
-#include "Personaje.h"
 #include "Juego.h"
-#include "Comando.h"
 
 using namespace std;
 

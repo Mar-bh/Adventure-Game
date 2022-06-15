@@ -3,6 +3,9 @@
 #include <iostream>
 
 #include"Lugar.h"
+#include "Comando.h"
+#include "ListaPalabras.h"
+#include "Item.h"
 #include "MovimientoComando.h"
 #include "AyudaComando.h"
 #include "PeleaComando.h"

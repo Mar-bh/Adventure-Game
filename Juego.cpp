@@ -9,18 +9,12 @@ void Juego::creaComandos(){
     ListaPalabras* comandos=parser.getComandos();
     comandos->agregaComando("movimiento", new MovimientoComando(jugador));
     comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[0]));
-   // comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[1]));
-    // comandos->agregaComando("pelea", new PeleaComando(jugador, rival3));
-    // comandos->agregaComando("pelea", new PeleaComando(jugador, rival4));
-    // comandos->agregaComando("pelea", new PeleaComando(jugador, rivalFinal));
-  
     comandos->agregaComando("ayuda", new AyudaComando(comandos));
 }
 
 void Juego::creaElementos(){
-    //personaje
-    jugador = new Personaje();
-    //lugares
+    std::cout << "Creamos lugares" << std::endl;
+   // lugares
     zonas[0] = new Lugar("Plaza principal del Parque",0); //Plaza principal
     zonas[1] = new Lugar("Zona de Juegos, muchos lugares para jugar",0); //zonaJuegos
     zonas[2] = new Lugar("Lago de agua azul",0); //lago
@@ -28,15 +22,36 @@ void Juego::creaElementos(){
     zonas[4]= new Lugar("Zona para jugar con la arena",0); //areneros
     zonas[5]= new Lugar("Uy, un arbol caido. Zona final",4); //arbol caido
 
+    std::cout << "Creamos personaje" << std::endl;
+    //personaje
+    jugador = new Personaje("Nico",0,zonas[0]);
+
+    //pollitos
+    // pollitos[0] = new Pollos();
+    // pollitos[1] = new Pollos();
+    // pollitos[2] = new Pollos();
+    // pollitos[3] = new Pollos();
+
     //posiciones y llaves 
     jugador -> setPosicion(zonas[0]); 
+    std::cout << "pilin c" << std::endl;
+
+
     for(int i=0;i<4;i++){
-        pollitos[i] ->setPosicion(zonas[i+1]);
+
+        std::cout << "pilin" << i << std::endl;
+        pollitos[i] = new Pollos("Pollito"+std::to_string(i),20,zonas[i+1],2,"rosa");
+        //pollitos[i] ->setPosicion(zonas[i+1]);
+        std::cout << "pilin" << i << std::endl;
         llaves[i] = new Item(100,"Llave","Pedazo para abrir puerta final");
+        std::cout << "pilin" << i << std::endl;
         zonas[i+1] -> setRecompensa(llaves[i]);
+        std::cout << "pilin" << i << std::endl;
     }
+
     for(int i=0;i<5;i++){
-        rivales[i] ->setPosicion(zonas[i+1]);
+        std::cout << "pilin" << i << std::endl;
+        rivales[i] = new Enemigo("X",10,zonas[i+1],5*i);
     }
 
      //salidas de cada lugar
