@@ -24,7 +24,7 @@ void PeleaComando::ejecuta(){
         int golpes;
         std::cout<<"---------------------------------------------------------------------"<<std::endl;
         std::cout<<"Opciones de pelea:"<< std::endl;
-        std::cout<<"1. Patada y arañazo"<< std::endl;
+        std::cout<<"1. Patada y aranazo"<< std::endl;
         std::cout<<"2. Utilizacion de Items"<< std::endl;
         std::cout<<"3. Mordida con rabia >:["<< std::endl;
         std::cout<<"---------------------------------------------------------------------"<<std::endl;

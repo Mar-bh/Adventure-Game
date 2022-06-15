@@ -1,11 +1,8 @@
 #include "Juego.h"
 
 Juego::Juego(){
-    //std::cout<<"pilina"<<std::endl;
     creaElementos();
-    //std::cout<<"pilinb"<<std::endl;
     creaComandos();
-    //std::cout<<"pilinc"<<std::endl;
 }
 
 void Juego::creaComandos(){ 
@@ -23,53 +20,41 @@ void Juego::creaElementos(){
     zonas[3]= new Lugar("Aquí vienen a un picnic",0); //zonaPicnic 
     zonas[4]= new Lugar("Zona para jugar con la arena",0); //areneros
     zonas[5]= new Lugar("Uy, un arbol caido. Zona final",4); //arbol caido
-    std::cout<<"pilinC"<<std::endl;
 
     //personaje
-    std::cout<<"pilinA"<<std::endl;
     jugador = new Personaje("Nico",100,zonas[0]);
-    std::cout<<"pilinB"<<std::endl;
 
-    std::cout << "Creamos personaje" << std::endl;
     //personaje
     jugador = new Personaje("Nico",0,zonas[0]);
 
-    //pollitos
-    // pollitos[0] = new Pollos();
-    // pollitos[1] = new Pollos();
-    // pollitos[2] = new Pollos();
-    // pollitos[3] = new Pollos();
-
     //posiciones y llaves 
     jugador -> setPosicion(zonas[0]); 
-    std::cout<<"pilinCD"<<std::endl;
+
+    //Pollitos
     std::string colores[5] = {"Azul","Rosa","Rojo","Amarillo","Morado"};
     std::string nombres[5] = {"Juan","Marianas","Nolberto","Paola","Jukari"};
 
     for(int i=0;i<4;i++){
         pollitos[i] = new Pollos(nombres[i],20+i*2,zonas[0],10,colores[i]);
-        std::cout<<pollitos[i] -> getColor()<<std::endl;
+        //std::cout<<pollitos[i] -> getColor()<<std::endl;
 
         pollitos[i] ->setPosicion(zonas[i+1]);
         llaves[i] = new Item(100,"Llave","Pedazo para abrir puerta final");
         std::cout << "pilin" << i << std::endl;
         zonas[i+1] -> setRecompensa(llaves[i]);
-        std::cout<<"pilinDDDDDDDDDD"<<std::endl;
     }
+    //Enemigos
     std::string nombreEne[5] = {"Iker","Carlos","Javier","Israel","Alfonso"};
     for(int i=0;i<5;i++){
         rivales[i] = new Enemigo(nombreEne[i],10*i,zonas[0],i);
         rivales[i] ->setPosicion(zonas[i+1]);
-        std::cout<<"pilinzote"<<std::endl;
     }
-    std::cout<<"pilinD"<<std::endl;
      //salidas de cada lugar
     zonas[0] -> setSalida(zonas[4],zonas[2],zonas[1],zonas[3]);
     zonas[4] -> setSalida(nullptr,zonas[0],zonas[1],nullptr );
     zonas[1] -> setSalida(nullptr,zonas[5],nullptr,zonas[4]);
     zonas[2] -> setSalida(zonas[0],nullptr,zonas[3],nullptr);
     zonas[3] -> setSalida(nullptr,nullptr,nullptr,zonas[0]);
-    std::cout<<"pilinDE"<<std::endl;
 }
     
 void Juego::imprimeInicio(){
@@ -88,7 +73,6 @@ void Juego::imprimeFin(){
 }
 
 void Juego::play(){
-    std::cout<<"pilin2"<<std::endl;
     imprimeInicio();
     bool fin = false;
     while (!fin){
