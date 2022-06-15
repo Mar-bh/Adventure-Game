@@ -16,6 +16,11 @@ int ListaPalabras::esComando(std::string pal){
     return -1;
 }
 
+void ListaPalabras::modificaComando(int pos, std::string pal, Comando* com){
+    palabras[pos] = pal;
+    comandos[pos] = com;
+}
+
 //duda implementar excepciones
 Comando* ListaPalabras::getComando(std::string pal){
     int pos=esComando(pal);

@@ -10,6 +10,7 @@ class ListaPalabras{
     public:
         ListaPalabras();
         void agregaComando(std::string, Comando*);
+        void modificaComando(int,std::string,Comando*);
         int esComando(std::string);
         Comando* getComando(std::string);
         std::string todosLosComandos();

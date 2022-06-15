@@ -52,11 +52,6 @@ void Juego::creaComandos(){
     ListaPalabras* comandos=parser.getComandos();
     comandos->agregaComando("movimiento", new MovimientoComando(jugador));
     comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[0],pollitos[0]));
-    // comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[1]));
-    // comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[2]));
-    // comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[3]));
-    // comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[4]));
-    // comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[5]));
     comandos->agregaComando("ayuda", new AyudaComando(comandos));
 }
 
@@ -79,8 +74,8 @@ void Juego::play(){
     bool fin = false;
     while (!fin){
         while(true){
-        Comando* comando = parser.generaComando();
-        fin = procesaComando(comando);
+            Comando* comando = parser.generaComando();
+            fin = procesaComando(comando);
             break;
         }
     }
@@ -90,13 +85,34 @@ void Juego::play(){
 
 bool Juego::procesaComando(Comando* instruccion){
     bool vencio = false;
-    instruccion ->ejecuta();
+    ListaPalabras* comandos=parser.getComandos();
+    if(instruccion ->getComando()=="pelea" &jugador->getPosicion() == zonas[0]){
+        std::cout << "No puedes pelear en este lugar" << std::endl;
+    }else if (jugador->getPosicion() == zonas[2] )  {
+        comandos ->modificaComando(1,"pelea",new PeleaComando(jugador, rivales[1],pollitos[1]));
+        instruccion ->ejecuta();
+    } else if (jugador->getPosicion() == zonas[3] )  {
+        comandos ->modificaComando(1,"pelea",new PeleaComando(jugador, rivales[2],pollitos[2]));
+        instruccion ->ejecuta();
+    } else if (jugador->getPosicion() == zonas[4] )  {
+        comandos ->modificaComando(1,"pelea",new PeleaComando(jugador, rivales[3],pollitos[3]));
+        instruccion ->ejecuta();
+    }  else if (jugador->getPosicion() == zonas[5] )  {
+        comandos ->modificaComando(1,"pelea",new PeleaComando(jugador, rivales[4],pollitos[4]));
+        instruccion ->ejecuta();
+    } else if (jugador->getPosicion() == zonas[6] )  {
+        comandos ->modificaComando(1,"pelea",new PeleaComando(jugador, rivales[5],new Pollos()));
+       instruccion ->ejecuta();
+    } else {
+        instruccion ->ejecuta();
+    }
+    
 
-    if(jugador->getPosicion()==zonas[4]){
-            if(jugador->getPuntaje() == 500){
+    if(jugador->getPosicion()==zonas[5]){
+            if(jugador->getPuntaje() == 600){
                  vencio = true;
             } else {
-                jugador -> setPosicion(zonas[5]);
+                jugador -> setPosicion(zonas[0]);
             }
         }
     return vencio;
