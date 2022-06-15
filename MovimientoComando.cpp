@@ -1,7 +1,7 @@
 #include "MovimientoComando.h"
 #include <string>
 
-MovimientoComando::MovimientoComando(Personaje* _jugador){
+MovimientoComando::MovimientoComando(Personaje* _jugador):Comando("movimiento",""){
     jugador = _jugador;
 }
 
@@ -14,7 +14,7 @@ void MovimientoComando::ejecuta(){
         std::string direc = getSegPalabra(); 
         char direccion = direc[0];
         if (jugador-> camina(direccion)){
-           Lugar* actual= jugador->getPosicion(); //necesitamos metodo para saber si la persona se va a moverr
+            Lugar* actual= jugador->getPosicion(); //necesitamos metodo para saber si la persona se va a moverr
             std::cout << "Te has movido hacia el " << direc << std::endl;
             std::cout << "Ahora estas en: " << actual->getDescripcion() << std::endl;
         }

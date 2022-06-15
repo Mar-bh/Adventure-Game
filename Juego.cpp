@@ -5,13 +5,6 @@ Juego::Juego(){
     creaComandos();
 }
 
-void Juego::creaComandos(){ 
-    ListaPalabras* comandos=parser.getComandos();
-    comandos->agregaComando("movimiento", new MovimientoComando(jugador));
-    comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[0]));
-    comandos->agregaComando("ayuda", new AyudaComando(comandos));
-}
-
 void Juego::creaElementos(){
     //lugares
     zonas[0] = new Lugar("Plaza principal del Parque",0); //Plaza principal
@@ -54,7 +47,19 @@ void Juego::creaElementos(){
     zonas[2] -> setSalida(zonas[0],nullptr,zonas[3],nullptr);
     zonas[3] -> setSalida(nullptr,nullptr,nullptr,zonas[0]);
 }
-    
+
+void Juego::creaComandos(){ 
+    ListaPalabras* comandos=parser.getComandos();
+    comandos->agregaComando("movimiento", new MovimientoComando(jugador));
+    comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[0]));
+    comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[1]));
+    comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[2]));
+    comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[3]));
+    comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[4]));
+    comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[5]));
+    comandos->agregaComando("Ayuda", new AyudaComando(comandos));
+}
+
 void Juego::imprimeInicio(){
     std::cout << "Te encuentras en un parque" << std::endl;
     std::cout << "Tienes una mision especial " << std::endl;

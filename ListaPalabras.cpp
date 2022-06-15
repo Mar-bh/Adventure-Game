@@ -31,6 +31,6 @@ std::string ListaPalabras::todosLosComandos(){
     for(std::string &pal:palabras){
         todos += "\t"+ pal + "\n";
     }
-    todos+= "\t->El comando va seguido de una segunda palabra\n\t->Solo el comando ayuda es de una sola palabra.";
+    todos+= "\t-> El comando de ayuda consiste en una sola palabra. \n\t-> Los otros comandos van seguido de una segunda palabra.";
     return todos;
 }
