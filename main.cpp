@@ -13,7 +13,9 @@
 using namespace std;
 
 int main(){
+    cout<<"pilin"<<endl;
     Juego game;
+    
     game.play();
     // vector <Item*> inventario;
     
