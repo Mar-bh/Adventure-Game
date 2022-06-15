@@ -11,7 +11,7 @@ class Lugar {
         Lugar(std::string,int); //listo
         Lugar* getSalida(char); //listo
         Item* getRecompensa(int); //listo
-        void setRecompensa(std::vector <Item*>); //listo
+        void setRecompensa(Item*); //listo
         void setSalida(Lugar*,Lugar*,Lugar*,Lugar*); //listo
         void descripcionLarga(); //listo    
         void setDescripcion(std::string);

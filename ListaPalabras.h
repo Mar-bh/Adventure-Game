@@ -13,8 +13,7 @@ class ListaPalabras{
         int esComando(std::string);
         Comando* getComando(std::string);
         std::string todosLosComandos();
-        void comandoDesconocido(std::string);
-
+        
     private:
         std::vector <std::string> palabras;
         std::vector <Comando*> comandos;
