@@ -1,9 +1,10 @@
 #include <sstream>
 #include "PeleaComando.h"
 
-PeleaComando::PeleaComando(Personaje* _jugador, Enemigo* enemy):Comando("pelea",""){
+PeleaComando::PeleaComando(Personaje* _jugador, Enemigo* enemy, Personaje* _pollos):Comando("pelea",""){
     jugador = _jugador;
     rival = enemy;
+    pollo = _pollos;
 }
 
 void PeleaComando::ejecuta(){
@@ -41,6 +42,9 @@ void PeleaComando::ejecuta(){
 
         if (contador==3 && golpesTotal >= 6) {
             std::cout<<"Has matado al enemigo"<<std::endl;
+            int puntos = jugador -> getPuntaje();
+            jugador -> setPuntos(puntos+100);
+            std::cout<<"Tu puntaje ahora es de "<< jugador -> getPuntaje() <<std::endl;
             opcion = 4;
         }
         else if (contador==3 && golpesTotal <= 6){
