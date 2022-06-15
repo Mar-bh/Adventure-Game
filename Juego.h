@@ -18,7 +18,7 @@ class Juego{
         void creaComandos();
         void play();
         void imprimeInicio();
-        bool procesaComando(Comando *);
+        bool procesaComando(Comando*);
         void imprimeFin();
 
     private:

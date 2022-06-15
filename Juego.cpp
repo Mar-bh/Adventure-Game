@@ -77,12 +77,15 @@ void Juego::play(){
 }
 
 bool Juego::procesaComando(Comando* instruccion){
-    bool vencio;
+    bool vencio = false;
     instruccion ->ejecuta();
+
     if(jugador->getPosicion()==zonas[4]){
             if(jugador->getPuntaje() == 500){
                  vencio = true;
+            } else {
+                jugador -> setPosicion(zonas[5]);
             }
         }
-     return vencio;
+    return vencio;
 }
