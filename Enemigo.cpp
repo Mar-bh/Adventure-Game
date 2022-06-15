@@ -22,7 +22,5 @@ void Enemigo::dialogo(){
     std::cout << "---------------------------------" << std::endl;
 }
 
-void Enemigo::quitaPuntaje(){
-    
-}
+
 

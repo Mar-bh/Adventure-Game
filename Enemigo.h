@@ -11,7 +11,6 @@ public:
     int getnivelPeligro() const; 
     void setnivelPeligro(int);    
     void dialogo(); 
-    void quitaPuntaje();
 };
 
 #endif 

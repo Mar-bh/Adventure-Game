@@ -32,6 +32,7 @@ public:
     void pelea(int, Personaje&);// opciones de pelea
     bool camina(char);
     int buscaLLaves();
+    void quitarPuntaje(int);
 };
 
 #endif 

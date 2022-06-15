@@ -50,8 +50,9 @@ void Juego::creaElementos(){
         zonas[i+1] -> setRecompensa(llaves[i]);
         std::cout<<"pilinDDDDDDDDDD"<<std::endl;
     }
+    std::string nombreEne[5] = {"Iker","Carlos","Javier","Israel","Alfonso"};
     for(int i=0;i<5;i++){
-        
+        rivales[i] = new Enemigo(nombreEne[i],10*i,zonas[0],i);
         rivales[i] ->setPosicion(zonas[i+1]);
         std::cout<<"pilinzote"<<std::endl;
     }
