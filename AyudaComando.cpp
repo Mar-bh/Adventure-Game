@@ -1,6 +1,6 @@
 #include "AyudaComando.h"
 
-AyudaComando::AyudaComando(ListaPalabras* _lista):Comando("Ayuda",""){
+AyudaComando::AyudaComando(ListaPalabras* _lista):Comando("ayuda",""){
     validas = _lista;
 }
 

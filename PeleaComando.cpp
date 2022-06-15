@@ -18,10 +18,9 @@ void PeleaComando::ejecuta(){
     int golpes;
     std::string nombreEnemigo;
     std::stringstream temporal; 
-    int golpesTotal = 0, contador = 0, damage = 10;
+    int golpesTotal = 0, contador = 0, damage = 10, opcion;
 
     do{ 
-        int golpes;
         std::cout<<"---------------------------------------------------------------------"<<std::endl;
         std::cout<<"Opciones de pelea:"<< std::endl;
         std::cout<<"1. Patada y aranazo"<< std::endl;
@@ -29,20 +28,22 @@ void PeleaComando::ejecuta(){
         std::cout<<"3. Mordida con rabia >:["<< std::endl;
         std::cout<<"---------------------------------------------------------------------"<<std::endl;
         std::cout<<"Ingresa la accion que deseas realizar"<<std::endl;
-        std::cin >> golpes;
+        std::cin >> opcion;
+
         nombreEnemigo = rival -> getNombre();
         temporal << rival  -> getNombre();
         Enemigo rivalN = *rival;
-        jugador -> pelea(golpes,rivalN);
-        golpesTotal += golpes;
+        jugador -> pelea(opcion,rivalN);
+        golpesTotal += opcion;
+        std::cout << "Golpes " << golpesTotal <<std::endl;
         contador ++;
         damage =+ 10;
 
-        if (contador==3 && golpesTotal == 6) {
+        if (contador==3 && golpesTotal >= 6) {
             std::cout<<"Has matado al enemigo"<<std::endl;
-            golpes = 4;
+            opcion = 4;
         }
-        else if (contador==3 && golpesTotal != 6){
+        else if (contador==3 && golpesTotal <= 6){
             std::cout<<"El enemigo es chingon y te bajo 10 puntos"<<std::endl;
             std::cout <<"Sigue la batalla" << std::endl;
             jugador->quitarPuntaje(damage);
@@ -51,5 +52,5 @@ void PeleaComando::ejecuta(){
             golpesTotal = 0;
         }
     }
-    while (golpes!=4);
+    while (opcion!=4);
 }
