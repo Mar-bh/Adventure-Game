@@ -31,6 +31,7 @@ class Juego{
         Enemigo* rivales[5];//        *rival1, *rival2,*rival3,*rival4,*rivalFinal;
         Lugar* zonas[6];  //*plazaPrincipal, *zonaJuegos, *lago, *zonaPicnic, *areneros, *arbolCaido;
         Item* llaves[4];
+        Item* objetos[4];
 
 };
 #endif 

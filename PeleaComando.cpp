@@ -7,13 +7,14 @@ PeleaComando::PeleaComando(Personaje* _jugador, Enemigo* enemy){
 }
 
 void PeleaComando::ejecuta(){
-    std::cout << "Pelea Comando prueba" << std::endl; //prueba
+    //std::cout << "Pelea Comando prueba" << std::endl; //prueba
 
     //std::cout<<typeid(rival).name();
     std::cout<<"---------------------------------------------------------------------"<<std::endl;
     std::cout<<"Hola "<<jugador -> getNombre()<<" salva a los pollos"<<std::endl;
     std::cout<<"---------------------------------------------------------------------"<<std::endl;
     std::cout<<jugador ->getNombre()<<" tienes que pelear con el primer enemigo en "<< jugador -> getPosicion() <<std::endl;
+    rival -> dialogo();
     std:: cout<<"---------------------------------------------------------------------"<<std::endl;
 
     int golpes;
@@ -44,6 +45,7 @@ void PeleaComando::ejecuta(){
         }
         else if (contador==3 && golpesTotal != 6){
             std::cout<<"El enemigo es chingon y te bajo 10 puntos"<<std::endl;
+            std::cout <<"Sigue la batalla" << std::endl;
             jugador->quitarPuntaje(damage);
             std::cout<<jugador -> getPuntaje()<<std::endl;
             contador = 0;
@@ -51,14 +53,4 @@ void PeleaComando::ejecuta(){
         }
     }
     while (golpes!=4);
-    // Personaje personaje1("Nico",200,primerLugar,inventario);
-    // Enemigo enemigo1("Juan",100,personaje1.getPosicion(),inventario,5); 
-    // std::cout<<typeid(enemigo1).name();
-    // std::cout<<"---------------------------------------------------------------------"<<std::endl;
-    // std::cout<<"Hola "<<personaje1.getNombre()<<" salva a los pollos"<<std::endl;
-    // std::cout<<"---------------------------------------------------------------------"<<std::endl;
-    // std::cout<<personaje1.getNombre()<<" tienes que pelear con el primer enemigo en "<<primerLugar.getDescripcion()<<std::endl;
-    // std::cout<<"---------------------------------------------------------------------"<<std::endl;
-
-
 }

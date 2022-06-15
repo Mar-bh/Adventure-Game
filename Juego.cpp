@@ -37,10 +37,8 @@ void Juego::creaElementos(){
     for(int i=0;i<4;i++){
         pollitos[i] = new Pollos(nombres[i],20+i*2,zonas[0],10,colores[i]);
         //std::cout<<pollitos[i] -> getColor()<<std::endl;
-
         pollitos[i] ->setPosicion(zonas[i+1]);
         llaves[i] = new Item(100,"Llave","Pedazo para abrir puerta final");
-        std::cout << "pilin" << i << std::endl;
         zonas[i+1] -> setRecompensa(llaves[i]);
     }
     //Enemigos
@@ -58,7 +56,6 @@ void Juego::creaElementos(){
 }
     
 void Juego::imprimeInicio(){
-    std::cout<<"pilinE"<<std::endl;
     std::cout << "Te encuentras en un parque" << std::endl;
     std::cout << "Tienes una mision especial " << std::endl;
     std::cout <<"Recorre el parque y recuperalos..." << std::endl;
@@ -76,11 +73,11 @@ void Juego::play(){
     imprimeInicio();
     bool fin = false;
     while (!fin){
-        //while(true){
+        while(true){
         Comando* comando = parser.generaComando();
         fin = procesaComando(comando);
-            //break;
-        //}
+            break;
+        }
     }
     imprimeFin();
 
