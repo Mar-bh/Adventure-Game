@@ -57,7 +57,7 @@ void Juego::creaComandos(){
     // comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[3]));
     // comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[4]));
     // comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[5]));
-    comandos->agregaComando("Ayuda", new AyudaComando(comandos));
+    comandos->agregaComando("ayuda", new AyudaComando(comandos));
 }
 
 void Juego::imprimeInicio(){

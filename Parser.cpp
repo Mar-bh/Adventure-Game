@@ -21,14 +21,16 @@ Comando* Parser::generaComando(){
     sstr.ignore();
     //try {}
     //throw en getComando Invalid Argument con el mensaje "Comando ingresado no es valido"
+    Comando* com;
     while(true){
         try{
-        Comando* com=comandos->getComando(primera); 
-        com->setSegPalabra(segunda);
-        return com;
+            com=comandos->getComando(primera); 
+            com->setSegPalabra(segunda);
+            return com;
         } catch(std::invalid_argument& ia){
-        std::cerr << "Ocurrio una excepcion: " << ia.what() << std::endl; 
+            std::cerr << "Ocurrio una excepcion: " << ia.what() << std::endl; 
         }
+        return com;
     }
 }
    
