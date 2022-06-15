@@ -24,13 +24,14 @@ Comando* Parser::generaComando(){
     try{
         Comando* com=comandos->getComando(primera); 
         com->setSegPalabra(segunda);
+        return com;
     } catch(std::invalid_argument& ia){
         std::cerr << "Ocurrio una excepcion: " << ia.what() << std::endl; 
     }
-    std::cout << "El programa continua" << std::endl;
+    return 0;
+    //std::cout << "El programa continua" << std::endl;
+}
     //instruccion que lanzaria una excpecion
-    
-
     // try{
     //     if(com){
     //         com->setSegPalabra(segunda);
@@ -41,7 +42,4 @@ Comando* Parser::generaComando(){
     // catch (Comando* comDelThrow){
     //     std::cout << "Comando ingresado no es valido" << std::endl;
     // }
-    
-    //return com;
-}
 

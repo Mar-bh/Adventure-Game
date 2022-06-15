@@ -5,7 +5,7 @@ Juego::Juego(){
     creaComandos();
 }
 
-void Juego::creaElementos(){
+void Juego::creaComandos(){
     ListaPalabras* comandos=parser.getComandos();
     comandos->agregaComando("movimiento", new MovimientoComando(jugador));
     comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[0]));
@@ -77,12 +77,15 @@ void Juego::play(){
 }
 
 bool Juego::procesaComando(Comando* instruccion){
-    bool vencio;
+    bool vencio = false;
     instruccion ->ejecuta();
+
     if(jugador->getPosicion()==zonas[4]){
             if(jugador->getPuntaje() == 500){
                  vencio = true;
+            } else {
+                jugador -> setPosicion(zonas[5]);
             }
         }
-     return vencio;
+    return vencio;
 }
