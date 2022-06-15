@@ -109,7 +109,7 @@ bool Juego::procesaComando(Comando* instruccion){
     
 
     if(jugador->getPosicion()==zonas[5]){
-            if(jugador->getPuntaje() == 600){
+            if(jugador->getPuntaje() == 500){
                  vencio = true;
             } else {
                 jugador -> setPosicion(zonas[0]);

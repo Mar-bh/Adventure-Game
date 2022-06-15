@@ -52,7 +52,7 @@ void PeleaComando::ejecuta(){
             jugador ->agregaItems(jugador ->getPosicion()->getRecompensa(0));
             jugador -> agregaItems(pollo ->getItem(0));
             jugador ->getPosicion() ->sacarRecompensa(0);
-            opcion = 4;
+            golpes = 4;
         }
         else if (contador==3 && golpesTotal <= 6){
             std::cout<<"El enemigo es chingon y te bajo 10 puntos"<<std::endl;
@@ -63,5 +63,5 @@ void PeleaComando::ejecuta(){
             golpesTotal = 0;
         }
     }
-    while (opcion!=4);
+    while (golpes!=4);
 }

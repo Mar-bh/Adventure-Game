@@ -26,9 +26,10 @@ Comando* ListaPalabras::getComando(std::string pal){
     int pos=esComando(pal);
     if(pos>=0){
         return comandos[pos];
-    } 
-    throw std::invalid_argument("Comando ingresado no es valido" );
-    //return nullptr; lanzar la excpecion
+     } //else {
+    //     throw std::invalid_argument("Comando ingresado no es valido" );
+    // }
+    return nullptr;
 }
 
 std::string ListaPalabras::todosLosComandos(){
