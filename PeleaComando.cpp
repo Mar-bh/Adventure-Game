@@ -19,8 +19,9 @@ void PeleaComando::ejecuta(){
     int golpes;
     std::string nombreEnemigo;
     std::stringstream temporal; //std::stringstream temporal;
-
+    int golpesTotal = 0, contador = 0, damage = 10;
     do{ 
+        int golpes;
         std::cout<<"---------------------------------------------------------------------"<<std::endl;
         std::cout<<"Opciones de pelea:"<< std::endl;
         std::cout<<"1. Patada y arañazo"<< std::endl;
@@ -33,8 +34,23 @@ void PeleaComando::ejecuta(){
         temporal << rival  -> getNombre();
         Enemigo rivalN = *rival;
         jugador -> pelea(golpes,rivalN);
+        golpesTotal += golpes;
+        contador ++;
+        damage =+ 10;
+
+        if (contador==3 && golpesTotal == 6) {
+            std::cout<<"Has matado al enemigo"<<std::endl;
+            golpes = 4;
+        }
+        else if (contador==3 && golpesTotal != 6){
+            std::cout<<"El enemigo es chingon y te bajo 10 puntos"<<std::endl;
+            jugador->quitarPuntaje(damage);
+            std::cout<<jugador -> getPuntaje()<<std::endl;
+            contador = 0;
+            golpesTotal = 0;
+        }
     }
-    while (golpes!=7);
+    while (golpes!=4);
     // Personaje personaje1("Nico",200,primerLugar,inventario);
     // Enemigo enemigo1("Juan",100,personaje1.getPosicion(),inventario,5); 
     // std::cout<<typeid(enemigo1).name();

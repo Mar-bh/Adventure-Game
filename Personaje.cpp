@@ -81,6 +81,7 @@ void Personaje::agregaItems(Item* nuevoItem){
 
 
 void Personaje::pelea(int golpe,Personaje& nombreEnemigo){// opciones de pelea
+        //crear una excepcion cuando golpe sea un string
         switch(golpe){
             case 1:
                 std::cout<<"---------------------------------------------------------------------"<<std::endl;
@@ -136,4 +137,8 @@ bool Personaje::camina(char dir){
         }
     }
     return false;
+}
+
+void Personaje::quitarPuntaje(int damage){
+    puntaje-=damage;
 }
