@@ -7,11 +7,12 @@
 
 class PeleaComando:public Comando{
     public:
-        PeleaComando(Personaje*, Enemigo*);
+        PeleaComando(Personaje*, Enemigo*,Personaje*);
         void ejecuta();
     private:
         Personaje* jugador;
         Enemigo* rival;
+        Personaje* pollo;
 };
 
 #endif

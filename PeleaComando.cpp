@@ -42,9 +42,15 @@ void PeleaComando::ejecuta(){
 
         if (contador==3 && golpesTotal >= 6) {
             std::cout<<"Has matado al enemigo"<<std::endl;
+            std::cout <<"\nPor derrotar al enemigo ahora tienes: " << jugador ->getPosicion()->getRecompensa(0) << std::endl;
             int puntos = jugador -> getPuntaje();
             jugador -> setPuntos(puntos+100);
             std::cout<<"Tu puntaje ahora es de "<< jugador -> getPuntaje() <<std::endl;
+            std::cout << "Haz recuperado al pollito " << pollo ->getNombre() <<std::endl;
+            std::cout << "Como agradecimieno el pollito te ha dado: \n" << pollo ->getItem(0) ->getItem() <<std::endl;
+            jugador ->agregaItems(jugador ->getPosicion()->getRecompensa(0));
+            jugador -> agregaItems(pollo ->getItem(0));
+            jugador ->getPosicion() ->sacarRecompensa(0);
             opcion = 4;
         }
         else if (contador==3 && golpesTotal <= 6){

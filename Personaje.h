@@ -20,7 +20,7 @@ public:
     std::string getNombre() const; 
     int getPuntaje(); 
     Lugar* getPosicion();
-    Item* getInventario();
+    Item* getItem(int);
     void setPersonaje(std::string);
     void setPosicion(Lugar*);
     void setPuntos(int);

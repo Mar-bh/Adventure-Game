@@ -51,12 +51,12 @@ void Juego::creaElementos(){
 void Juego::creaComandos(){ 
     ListaPalabras* comandos=parser.getComandos();
     comandos->agregaComando("movimiento", new MovimientoComando(jugador));
-    comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[0]));
-    comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[1]));
-    comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[2]));
-    comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[3]));
-    comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[4]));
-    comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[5]));
+    comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[0],pollitos[0]));
+    // comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[1]));
+    // comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[2]));
+    // comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[3]));
+    // comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[4]));
+    // comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[5]));
     comandos->agregaComando("Ayuda", new AyudaComando(comandos));
 }
 

@@ -14,6 +14,7 @@ class Lugar {
         void setRecompensa(Item*); //listo
         void setSalida(Lugar*,Lugar*,Lugar*,Lugar*); //listo
         void descripcionLarga(); //listo    
+        void sacarRecompensa(int);
         void setDescripcion(std::string);
         std::string getDescripcion(); //listo
         int numSalida(char); //listo

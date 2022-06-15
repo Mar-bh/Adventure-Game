@@ -58,6 +58,10 @@ void Lugar::setRecompensa(Item* premio){ //un arreglo para hacerle pushback
     recompensa.push_back(premio);
 }
 
+void Lugar::sacarRecompensa(int premio){
+    recompensa.erase(recompensa.begin()+premio);
+}
+
 Item* Lugar::getRecompensa(int num){
     if (num>=0 && num<recompensa.size()){
         return recompensa[num];
