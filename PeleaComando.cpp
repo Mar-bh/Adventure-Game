@@ -19,9 +19,10 @@ void PeleaComando::ejecuta(){
     int golpes;
     std::string nombreEnemigo;
     std::stringstream temporal; 
-    int golpesTotal = 0, contador = 0, damage = 10, opcion;
+    int golpesTotal = 0, contador = 0, damage = 10;
 
     do{ 
+        int opcion;
         std::cout<<"---------------------------------------------------------------------"<<std::endl;
         std::cout<<"Opciones de pelea:"<< std::endl;
         std::cout<<"1. Patada y aranazo"<< std::endl;
