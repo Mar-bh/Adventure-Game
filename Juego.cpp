@@ -22,13 +22,11 @@ void Juego::creaElementos(){
     zonas[5]= new Lugar("Uy, un arbol caido. Zona final",4); //arbol caido
 
     //personaje
-    jugador = new Personaje("Nico",100,zonas[0]);
-
-    //personaje
     jugador = new Personaje("Nico",0,zonas[0]);
 
-    //posiciones y llaves 
-    jugador -> setPosicion(zonas[0]); 
+    //items
+    std::string nombreItem[4] = {"pelota","hoja","pluma","peluche"};
+    std::string descripciones[4] = {"objeto para diversion", "para jugar","premio","lo que te encuentras en un parque"};
 
     //Pollitos
     std::string colores[5] = {"Azul","Rosa","Rojo","Amarillo","Morado"};
@@ -36,8 +34,10 @@ void Juego::creaElementos(){
 
     for(int i=0;i<4;i++){
         pollitos[i] = new Pollos(nombres[i],20+i*2,zonas[0],10,colores[i]);
+        objetos[i] = new Item(10*1,nombreItem[i],descripciones[i]);
         //std::cout<<pollitos[i] -> getColor()<<std::endl;
         pollitos[i] ->setPosicion(zonas[i+1]);
+        pollitos[i] ->agregaItems(objetos[i]);
         llaves[i] = new Item(100,"Llave","Pedazo para abrir puerta final");
         zonas[i+1] -> setRecompensa(llaves[i]);
     }
