@@ -56,6 +56,7 @@ void Juego::creaComandos(){
     comandos->agregaComando("movimiento", new MovimientoComando(jugador));
     comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[0],pollitos[0]));
     comandos->agregaComando("ayuda", new AyudaComando(comandos));
+    //comandos->agregaComando("si", new Inventario());//
     fflush(stdin);
 }
 
@@ -127,19 +128,28 @@ bool Juego::procesaComando(Comando* instruccion){
     }
 
 
-    if(peleo){
-        std::string respuesta;
-        peleo =false;
+    if(peleo==true){
+        //std::string respuesta;
+        
         std::cout<<"PILIN"<<std::endl;
         jugador -> consulta();
         std::cout<<"\n--------------------------------------------------\n"<<std::endl;
         
-        std::cout<<"\nQuieres ver los Items de tu inventario?\nEscribe 1 para si o 2 para no\n"<<std::endl;
-        std::stringstream sstr(respuesta);
-        std::cout<<respuesta<<std::endl;
+        std::cout<<"\nQuieres ver los Items de tu inventario?\nEscribe si o no\n"<<std::endl;
+        //std::stringstream sstr(respuesta);
+        //std::cout<<respuesta<<std::endl;
+
+        //comandos ->modificaComando(new Inventario());
+
+        //instruccion->ejecuta();
+
+        /*
         if (respuesta=="si"){
             jugador->muestraInventario();
         }
+        else {
+            return vencio;
+        }*/
         //creaComandos();
 
         //Comando ayuda = new Comando comandos("ayuda", "");
@@ -164,6 +174,7 @@ bool Juego::procesaComando(Comando* instruccion){
                 jugador -> setPosicion(zonas[0]);
             }
         }*/
+    peleo =false;
     std::cout << "g" << std::endl;
     return vencio;
 }
