@@ -8,12 +8,14 @@
 class Lugar {
     public:
         Lugar(); //l
-        Lugar(std::string); //listo
+        Lugar(std::string,int); //listo
         Lugar* getSalida(char); //listo
         Item* getRecompensa(int); //listo
-        void setRecompensa(std::vector <Item*>); //listo
+        void setRecompensa(Item*); //listo
         void setSalida(Lugar*,Lugar*,Lugar*,Lugar*); //listo
-        void descripcionLarga(); //listo
+        void descripcionLarga(); //listo    
+        void sacarRecompensa(int);
+        void setDescripcion(std::string);
         std::string getDescripcion(); //listo
         int numSalida(char); //listo
         int cantidadLlaves();

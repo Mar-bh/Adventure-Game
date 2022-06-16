@@ -2,12 +2,14 @@
 #define AYUDACOMANDO_H
 #include "Comando.h"
 #include "ListaPalabras.h"
+#include "Personaje.h"
 
-class AyudaComando:public Comando{
+class Inventario:public Comando{
     public:
-        AyudaComando(ListaPalabras*);
+        Inventario(ListaPalabras*,Personaje*);
         void ejecuta();
     private:
         ListaPalabras* validas;
+        Personaje* jugador;
 }; 
 #endif

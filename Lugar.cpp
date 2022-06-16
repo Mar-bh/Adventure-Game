@@ -1,6 +1,6 @@
 #include "Lugar.h"
 
-Lugar::Lugar(){ //copia de fabiola con cambio
+Lugar::Lugar(){ 
     descripcion = "Espacio del parque ";
     for(int i=0; i<4; i++){
         salidas[i]=nullptr;
@@ -8,15 +8,15 @@ Lugar::Lugar(){ //copia de fabiola con cambio
     llaves = 0;
 }
 
-Lugar::Lugar(std::string desc){ //copia de fabiola con cambio
+Lugar::Lugar(std::string desc, int _llave){
     descripcion = desc;
     for(int i=0; i<4; i++){
         salidas[i]=nullptr;
     }
-    llaves = 0;
+    llaves = _llave;
 }
 
-Lugar* Lugar::getSalida(char dir){ //copia de fabiola con cambio
+Lugar* Lugar::getSalida(char dir){ 
     int num=numSalida(dir);
     if(num>=0){
         return salidas[num];
@@ -24,7 +24,7 @@ Lugar* Lugar::getSalida(char dir){ //copia de fabiola con cambio
     return nullptr;
 }
 
-void Lugar::setSalida(Lugar* n, Lugar* s, Lugar* e, Lugar* o){ //copia de fabiola
+void Lugar::setSalida(Lugar* n, Lugar* s, Lugar* e, Lugar* o){ 
     salidas[0]=n;
     salidas[1]=s;
     salidas[2]=e;
@@ -47,14 +47,19 @@ int Lugar::numSalida(char dir){
 
 }
 
+void Lugar::setDescripcion(std::string _desc){
+    descripcion = _desc;
+}
 std::string Lugar::getDescripcion(){
     return descripcion;
 }
 
-void Lugar::setRecompensa(std::vector <Item*> premio){ //un arreglo para hacerle pushback 
-    for(int i= 0; i <= premio.size(); i++){
-        recompensa.push_back(premio.at(i));
-    }
+void Lugar::setRecompensa(Item* premio){ //un arreglo para hacerle pushback 
+    recompensa.push_back(premio);
+}
+
+void Lugar::sacarRecompensa(int premio){
+    recompensa.erase(recompensa.begin()+premio);
 }
 
 Item* Lugar::getRecompensa(int num){

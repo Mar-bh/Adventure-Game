@@ -19,6 +19,7 @@ public:
     void setCaracteristica(std::string);
     void setPuntos(int);
     void descripcion();
+    Item operator+(const Item&);
 };
 
 #endif 
