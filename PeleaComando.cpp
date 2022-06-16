@@ -43,13 +43,19 @@ void PeleaComando::ejecuta(){
 
         if (contador==3 && golpesTotal >= 6) {
             std::cout<<"Has derrotado a "<<nombreEnemigo<<"!!!!"<<std::endl;
-            //std::cout <<"\nPor derrotar al enemigo ahora tienes: " << jugador ->getPosicion()->getRecompensa(0) ->getItem() << std::endl;
             int puntos = jugador -> getPuntaje();
             jugador -> setPuntos(puntos+100);
             std::cout<<"Tu puntaje ahora es de "<< jugador -> getPuntaje() <<std::endl;
             std::cout << "Haz recuperado al pollito " << pollo ->getNombre() <<std::endl;
             std::cout << "Como agradecimieno el pollito te ha dado: " << pollo ->getItem(0) ->getItem() <<std::endl;
-            jugador ->agregaItems(jugador ->getPosicion()->getRecompensa(0));
+            Item* inicial = jugador ->getPosicion() ->getRecompensa(0);
+            Item* temporal = jugador ->getItem(0);
+            Item suma = *inicial + *temporal;
+            jugador -> getItem(0)-> setPuntos(suma.getPuntos());
+            std::cout << "Prueba " << std::endl;
+            std::cout << jugador -> getPosicion()->getRecompensa(0) -> getItem() << std::endl;
+            std::cout << jugador -> getPosicion()->getRecompensa(0) -> getPuntos() << std::endl;
+            std::cout <<"Por derrotar al enemigo ahora tienes una llave de: " << jugador ->getItem(0)->getPuntos() << " puntos" << std::endl;
             jugador -> agregaItems(pollo ->getItem(0));
             jugador ->getPosicion() ->sacarRecompensa(0);
             golpes = 4;

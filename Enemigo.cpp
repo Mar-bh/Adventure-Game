@@ -15,7 +15,7 @@ void Enemigo::setnivelPeligro(int _nivelPeligro){
 
 void Enemigo::dialogo(){
     std::cout << "------------ ENEMIGO ------------" << std::endl;
-    std::cout << "Estas en: " << getPosicion() << std::endl;    
+    //std::cout << "Estas en: " << getPosicion() << std::endl;    
     std::cout << "Nivel de peligro del enemigo: " << nivelPeligro << std::endl;
     std::cout << "Hola Nico, soy: " << getNombre() << std::endl;
     std::cout << "Como veras, mi puntaje es de:"  << getPuntaje() << std::endl;

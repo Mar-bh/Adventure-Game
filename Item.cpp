@@ -49,6 +49,8 @@ void Item::descripcion(){
 }
 
 Item Item::operator+(const Item& otro){ //sobrecarga de operador para item, incrementamos puntos para el puntaje del jugador
-    int puntajeFinal = puntos + otro.getPuntos();
-    return Item(puntajeFinal, item, caracteristica);
+    puntos += otro.getPuntos();
+    Item nuevo(puntos,item,caracteristica);
+    *this = nuevo;
+    return *this;
 }
