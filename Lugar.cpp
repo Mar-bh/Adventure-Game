@@ -63,11 +63,11 @@ void Lugar::sacarRecompensa(int premio){
 }
 
 Item* Lugar::getRecompensa(int num){
-    if (num>=0 && num<recompensa.size()){
-        return recompensa[num];
-    }
-    return nullptr;
-
+    return recompensa[num];
+    // if (num>=0 && num<recompensa.size()){
+    //     return recompensa[num];
+    // }
+    // return nullptr;
 }
 
 void Lugar::descripcionLarga(){
