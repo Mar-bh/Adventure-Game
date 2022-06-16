@@ -118,8 +118,13 @@ bool Juego::procesaComando(Comando* instruccion){
         comandos ->modificaComando(1,"pelea",new PeleaComando(jugador, rivales[4],new Pollos()));
        instruccion ->ejecuta();
        peleo = true;
+       //if(jugador->getPosicion()==zonas[5]){
+        if(jugador->getPuntaje() >= 300){
+        } else {
+            jugador -> setPosicion(zonas[0]);
+        }
+        //}
     } else {
-        std::cout<<"aaaaaaaa"<<std::endl;
         instruccion -> ejecuta();
         
     }
@@ -129,6 +134,13 @@ bool Juego::procesaComando(Comando* instruccion){
         jugador -> consulta(); //consulta del personaje cada que termina una pelea; puntaje, items, ubicacion
         std::cout<<"\n--------------------------------------------------\n"<<std::endl;
         std::cout<<"Sigue explorando!"<<std::endl;
+
+        if(jugador->getPosicion()==zonas[5] || jugador->getPosicion()==zonas[5]){
+            if(jugador->getPuntaje() >= 300){
+            } else {
+                jugador -> setPosicion(zonas[0]);
+        }
+        }
         //Checar para inventario
         //std::cout<<"\nQuieres ver los Items de tu inventario?\nEscribe si o no\n"<<std::endl;
         //std::stringstream sstr(respuesta);
@@ -143,16 +155,13 @@ bool Juego::procesaComando(Comando* instruccion){
             return vencio;
         }*/     
     }
+    else{
+        std::cout<<"Busca la salida!"<<std::endl;
+    }
 
 //condicion para terminar el juego(principalmente en la zona final)
-    if(jugador->getPosicion()==zonas[5]){
-            if(jugador->getPuntaje() >= 400){
-            } else {
-                jugador -> setPosicion(zonas[0]);
-            }
-        }
+    
     peleo =false;
-    std::cout << "g" << std::endl;
     return vencio;
 }
 

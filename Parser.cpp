@@ -20,7 +20,7 @@ Comando* Parser::generaComando(){
     sstr >> primera;
     sstr >> segunda;
     sstr.ignore();
-
+    
     try{
         Comando*  com = comandos->getComando(primera);
         if(com){
