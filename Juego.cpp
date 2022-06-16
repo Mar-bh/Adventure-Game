@@ -13,7 +13,7 @@ void Juego::creaElementos(){
     zonas[0] = new Lugar("Plaza principal del Parque",0); //Plaza principal
     zonas[1] = new Lugar("Zona de Juegos, muchos lugares para jugar",0); //zonaJuegos
     zonas[2] = new Lugar("Lago de agua azul",0); //lago
-    zonas[3]= new Lugar("Aquí vienen a un picnic",0); //zonaPicnic 
+    zonas[3]= new Lugar("Aqui vienen a un picnic",0); //zonaPicnic 
     zonas[4]= new Lugar("Zona para jugar con la arena",0); //areneros
     zonas[5]= new Lugar("Uy, un arbol caido. Zona final",4); //arbol caido
 
@@ -31,6 +31,7 @@ void Juego::creaElementos(){
     for(int i=0;i<4;i++){
         pollitos[i] = new Pollos(nombres[i],20+i*2,zonas[0],10,colores[i]);
         objetos[i] = new Item(10*1,nombreItem[i],descripciones[i]);
+        //Quiero desplegar el color del pollo :(
         //std::cout<<pollitos[i] -> getColor()<<std::endl;
         pollitos[i] ->setPosicion(zonas[i+1]);
         pollitos[i] ->agregaItems(objetos[i]);
@@ -81,9 +82,7 @@ void Juego::play(){
     bool fin = false;
     while (!fin){
         while(true){
-            std::cout << "help" << std::endl;
-            Comando* comando = parser.generaComando(); //aqui truena 
-            std::cout << "help2" << std::endl;
+            Comando* comando = parser.generaComando();
             fin = procesaComando(comando);
             break;
         }
@@ -92,6 +91,7 @@ void Juego::play(){
 
 }
 
+//Proceso de los comandos segun se les llame; principalmente comandoPelea
 bool Juego::procesaComando(Comando* instruccion){
     bool vencio = false, peleo = false;
     ListaPalabras* comandos=parser.getComandos();
@@ -126,47 +126,27 @@ bool Juego::procesaComando(Comando* instruccion){
 
 
     if(peleo==true){
-        //std::string respuesta;
-        
-        std::cout<<"PILIN"<<std::endl;
-        jugador -> consulta();
+        jugador -> consulta(); //consulta del personaje cada que termina una pelea; puntaje, items, ubicacion
         std::cout<<"\n--------------------------------------------------\n"<<std::endl;
-        
-        std::cout<<"\nQuieres ver los Items de tu inventario?\nEscribe si o no\n"<<std::endl;
+        std::cout<<"Sigue explorando!"<<std::endl;
+        //Checar para inventario
+        //std::cout<<"\nQuieres ver los Items de tu inventario?\nEscribe si o no\n"<<std::endl;
         //std::stringstream sstr(respuesta);
         //std::cout<<respuesta<<std::endl;
-
         //comandos ->modificaComando(new Inventario());
-
         //instruccion->ejecuta();
-
         /*
         if (respuesta=="si"){
             jugador->muestraInventario();
         }
         else {
             return vencio;
-        }*/
-        //creaComandos();
-
-        //Comando ayuda = new Comando comandos("ayuda", "");
-
-        //Comando* comando = parser.generaComando();
-        //procesaComando(comando);
-        //instruccion -> ejecuta();
-        
-        //ListaPalabras* comandos=parser.getComandos();
-        //->();
-        
+        }*/     
     }
-   // else{
-        
-    //}
 
+//condicion para terminar el juego(principalmente en la zona final)
     if(jugador->getPosicion()==zonas[5]){
-
-            if(jugador->getPuntaje() >= 400){//movi la condicion MARY
-                 vencio = true;
+            if(jugador->getPuntaje() >= 400){
             } else {
                 jugador -> setPosicion(zonas[0]);
             }

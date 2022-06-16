@@ -21,7 +21,6 @@ void ListaPalabras::modificaComando(int pos, std::string pal, Comando* com){
     comandos[pos] = com;
 }
 
-//duda implementar excepciones
 Comando* ListaPalabras::getComando(std::string pal){
     int pos=esComando(pal);
     if(pos>=0){

@@ -7,6 +7,6 @@ Inventario::Inventario(ListaPalabras* _lista,Personaje* _jugador):Comando("si","
 }
 
 void Inventario::ejecuta(){
-    std::cout<<"inventarioo"<<std::endl;
+    std::cout<<"inventario"<<std::endl;
     jugador->muestraInventario();
 }

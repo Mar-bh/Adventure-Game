@@ -14,7 +14,7 @@ Personaje::Personaje(std::string _nombre,int _puntaje,Lugar* _posicion) //,std::
 {
     nombre = _nombre;
     puntaje = _puntaje;
-    // inventario = _inventario; quitar
+    // inventario = _inventario; Evaluar
     posicion = _posicion;
 }
 
@@ -42,14 +42,11 @@ void Personaje::setPuntos(int _puntaje){
     puntaje = _puntaje;
 }
 
-//duda sobre la composicion, queremos obtener la posicion del personaje por medio
-// del metodo descripcion de Lugar; solo queremos desplegar un metodo de lugar en nuestro cpp de personaje,
-// y llamarlo posicion, para consultarlo despues en el metodo de consulta del personaje.
 void Personaje::setPosicion(Lugar* _posicion){
     posicion = _posicion;
 }
 
-//metodo inventario, para por medio de un vector ver todos los items que tenemos y por otro metodo agregar
+//metodo inventario, por medio de un vector ver todos los items que tenemos y por otro metodo agregar
 void Personaje::setInventario(std::vector <Item*> _inventario){
     inventario = _inventario;
 }
@@ -69,8 +66,7 @@ void Personaje::muestraInventario(){
      }
     std::cout << "------------ FIN INVENTARIO ------------" << std::endl;
 }
-//Agregar items al vector inventario
-//void Personaje::agregaItems(Item);// agregamos mas items al inventario
+
 void Personaje::agregaItems(Item* nuevoItem){
     inventario.push_back(nuevoItem);
 }
@@ -80,17 +76,11 @@ Item* Personaje::getItem(int pos){
 
 }
 
-// borrar lo del enemigo y ponerlo en el personaje que gano; quitar o borrar item (para cuando el personaje obtiene un item)
-// vector<> item.     item.erase(i) //iterador para determinar la posicion a borrar erase de vectores.
-//item.clear()
-
-
-void Personaje::pelea(int golpe,Personaje& nombreEnemigo){// opciones de pelea
-        //crear una excepcion cuando golpe sea un string
+void Personaje::pelea(int golpe,Personaje& nombreEnemigo){
         switch(golpe){
             case 1:
                 std::cout<<"---------------------------------------------------------------------"<<std::endl;
-                std::cout<<nombreEnemigo.getNombre()<<" ha sido herido de una patada y arañazo"<<std::endl;
+                std::cout<<nombreEnemigo.getNombre()<<" ha sido herido de una patada y aranazo"<<std::endl;
                 std::cout<<"---------------------------------------------------------------------"<<std::endl; 
                 break;
             case 2:
@@ -108,7 +98,6 @@ void Personaje::pelea(int golpe,Personaje& nombreEnemigo){// opciones de pelea
         }
     }
    
-
 void Personaje::consulta(){
     std::cout << "------------ DESCRIPCION DEL Personaje ------------" << std::endl;
     std::cout << "Nombre del Personaje: " << nombre << std::endl;
@@ -125,7 +114,6 @@ int Personaje::buscaLLaves(){
             cantidadLlaves += 1;
         }
     }
-
     return cantidadLlaves;
 }
 
