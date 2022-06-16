@@ -49,9 +49,11 @@ void PeleaComando::ejecuta(){
             std::cout<<"Tu puntaje ahora es de "<< jugador -> getPuntaje() <<std::endl;
             std::cout << "Haz recuperado al pollito " << pollo ->getNombre() <<std::endl;
             std::cout << "Como agradecimieno el pollito te ha dado: " << pollo ->getItem(0) ->getItem() <<std::endl;
+            std::cout << "a" << std::endl;
             jugador ->agregaItems(jugador ->getPosicion()->getRecompensa(0));
             jugador -> agregaItems(pollo ->getItem(0));
             jugador ->getPosicion() ->sacarRecompensa(0);
+            std::cout << "b" << std::endl;
             golpes = 4;
         }
         else if (contador==3 && golpesTotal <= 6){
@@ -61,7 +63,9 @@ void PeleaComando::ejecuta(){
             std::cout<<jugador -> getPuntaje()<<std::endl;
             contador = 0;
             golpesTotal = 0;
-        }
+        }std::cout << "c" << std::endl;
     }
+    
     while (golpes!=4);
+    std::cout << "d" << std::endl;
 }

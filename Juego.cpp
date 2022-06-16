@@ -1,3 +1,6 @@
+#include <string>
+#include <iostream>
+#include <sstream>
 #include "Juego.h"
 
 Juego::Juego(){
@@ -53,12 +56,13 @@ void Juego::creaComandos(){
     comandos->agregaComando("movimiento", new MovimientoComando(jugador));
     comandos->agregaComando("pelea", new PeleaComando(jugador, rivales[0],pollitos[0]));
     comandos->agregaComando("ayuda", new AyudaComando(comandos));
+    fflush(stdin);
 }
 
 void Juego::imprimeInicio(){
     std::cout << "Te encuentras en un parque" << std::endl;
     std::cout << "Tienes una mision especial " << std::endl;
-    std::cout <<"Recorre el parque y recuperalos..." << std::endl;
+    std::cout << "Recorre el parque y recuperalos..." << std::endl;
     std::cout << "Si necesitas ayuda teclea la palabra: ayuda" << std::endl;
 }
 
@@ -74,7 +78,9 @@ void Juego::play(){
     bool fin = false;
     while (!fin){
         while(true){
-            Comando* comando = parser.generaComando();
+            std::cout << "help" << std::endl;
+            Comando* comando = parser.generaComando(); //aqui truena 
+            std::cout << "help2" << std::endl;
             fin = procesaComando(comando);
             break;
         }
@@ -84,36 +90,81 @@ void Juego::play(){
 }
 
 bool Juego::procesaComando(Comando* instruccion){
-    bool vencio = false;
+    bool vencio = false, peleo = false;
     ListaPalabras* comandos=parser.getComandos();
     if(instruccion ->getComando()=="pelea" &jugador->getPosicion() == zonas[0]){
         std::cout << "No puedes pelear en este lugar" << std::endl;
-    }else if (jugador->getPosicion() == zonas[2] )  {
+    }else if (jugador->getPosicion() == zonas[1] )  {
+        std::cout << "e" << std::endl;
+        comandos ->modificaComando(1,"pelea",new PeleaComando(jugador, rivales[0],pollitos[0]));
+        instruccion ->ejecuta();
+        peleo = true;
+    } else if (jugador->getPosicion() == zonas[2] )  {
         comandos ->modificaComando(1,"pelea",new PeleaComando(jugador, rivales[1],pollitos[1]));
         instruccion ->ejecuta();
+        peleo = true;
     } else if (jugador->getPosicion() == zonas[3] )  {
         comandos ->modificaComando(1,"pelea",new PeleaComando(jugador, rivales[2],pollitos[2]));
         instruccion ->ejecuta();
-    } else if (jugador->getPosicion() == zonas[4] )  {
+        peleo = true;
+    }  else if (jugador->getPosicion() == zonas[4] )  {
         comandos ->modificaComando(1,"pelea",new PeleaComando(jugador, rivales[3],pollitos[3]));
         instruccion ->ejecuta();
-    }  else if (jugador->getPosicion() == zonas[5] )  {
-        comandos ->modificaComando(1,"pelea",new PeleaComando(jugador, rivales[4],pollitos[4]));
-        instruccion ->ejecuta();
-    } else if (jugador->getPosicion() == zonas[6] )  {
-        comandos ->modificaComando(1,"pelea",new PeleaComando(jugador, rivales[5],new Pollos()));
+        peleo = true;
+    } else if (jugador->getPosicion() == zonas[5] )  {
+        comandos ->modificaComando(1,"pelea",new PeleaComando(jugador, rivales[4],new Pollos()));
        instruccion ->ejecuta();
+       peleo = true;
+        if(jugador->getPuntaje() >= 400){//movi la condicion MARY
+                 vencio = true;
+            } else {
+                jugador -> setPosicion(zonas[0]);
+            } 
     } else {
-        instruccion ->ejecuta();
+        std::cout<<"aaaaaaaa"<<std::endl;
+        instruccion -> ejecuta();
+        
     }
-    
 
-    if(jugador->getPosicion()==zonas[5]){
-            if(jugador->getPuntaje() == 500){
+
+    if(peleo){
+        std::string respuesta;
+        peleo =false;
+        std::cout<<"PILIN"<<std::endl;
+        jugador -> consulta();
+        std::cout<<"\n--------------------------------------------------\n"<<std::endl;
+        
+        std::cout<<"\nQuieres ver los Items de tu inventario?\nEscribe 1 para si o 2 para no\n"<<std::endl;
+        std::stringstream sstr(respuesta);
+        std::cout<<respuesta<<std::endl;
+        if (respuesta=="si"){
+            jugador->muestraInventario();
+        }
+        //creaComandos();
+
+        //Comando ayuda = new Comando comandos("ayuda", "");
+
+        //Comando* comando = parser.generaComando();
+        //procesaComando(comando);
+        //instruccion -> ejecuta();
+        
+        //ListaPalabras* comandos=parser.getComandos();
+        //->();
+        
+    }
+   // else{
+        
+    //}
+
+   /* if(jugador->getPosicion()==zonas[5]){
+
+            if(jugador->getPuntaje() >= 400){//movi la condicion MARY
                  vencio = true;
             } else {
                 jugador -> setPosicion(zonas[0]);
             }
-        }
+        }*/
+    std::cout << "g" << std::endl;
     return vencio;
 }
+

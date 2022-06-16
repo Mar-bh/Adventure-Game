@@ -23,6 +23,7 @@ class Juego{
         void imprimeInicio();
         bool procesaComando(Comando*);
         void imprimeFin();
+        
 
     private:
         Parser parser;

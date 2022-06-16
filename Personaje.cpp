@@ -77,6 +77,7 @@ void Personaje::agregaItems(Item* nuevoItem){
 
 Item* Personaje::getItem(int pos){
     return inventario[pos];
+
 }
 
 // borrar lo del enemigo y ponerlo en el personaje que gano; quitar o borrar item (para cuando el personaje obtiene un item)
