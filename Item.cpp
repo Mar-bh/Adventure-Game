@@ -48,7 +48,9 @@ void Item::descripcion(){
     std::cout << "---------------------------------" << std::endl;
 }
 
-Item Item::operator+(const Item& otro){ //sobrecarga de operador para item, incrementamos puntos
-    int puntajeFinal = puntos + otro.getPuntos();
-    return Item(puntajeFinal, item, caracteristica);
+Item Item::operator+(const Item& otro){ //sobrecarga de operador para item, incrementamos puntos para el puntaje del jugador
+    puntos += otro.getPuntos();
+    Item nuevo(puntos,item,caracteristica);
+    *this = nuevo;
+    return *this;
 }

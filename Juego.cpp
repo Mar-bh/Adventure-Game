@@ -13,12 +13,14 @@ void Juego::creaElementos(){
     zonas[0] = new Lugar("Plaza principal del Parque",0); //Plaza principal
     zonas[1] = new Lugar("Zona de Juegos, muchos lugares para jugar",0); //zonaJuegos
     zonas[2] = new Lugar("Lago de agua azul",0); //lago
-    zonas[3]= new Lugar("Aquí vienen a un picnic",0); //zonaPicnic 
+    zonas[3]= new Lugar("Aqui vienen a un picnic",0); //zonaPicnic 
     zonas[4]= new Lugar("Zona para jugar con la arena",0); //areneros
     zonas[5]= new Lugar("Uy, un arbol caido. Zona final",4); //arbol caido
+    //zonas[6] = new Lugar("Salida",0);
 
     //personaje
     jugador = new Personaje("Nico",0,zonas[0]);
+    jugador -> agregaItems(new Item(0,"Llave","Pedazo para abrir puerta final"));
 
     //items
     std::string nombreItem[4] = {"pelota","hoja","pluma","peluche"};
@@ -31,10 +33,11 @@ void Juego::creaElementos(){
     for(int i=0;i<4;i++){
         pollitos[i] = new Pollos(nombres[i],20+i*2,zonas[0],10,colores[i]);
         objetos[i] = new Item(10*1,nombreItem[i],descripciones[i]);
+        //Quiero desplegar el color del pollo :(
         //std::cout<<pollitos[i] -> getColor()<<std::endl;
         pollitos[i] ->setPosicion(zonas[i+1]);
         pollitos[i] ->agregaItems(objetos[i]);
-        llaves[i] = new Item(100,"Llave","Pedazo para abrir puerta final");
+        llaves[i] = new Item(25,"Llave","Pedazo para abrir puerta final");
         zonas[i+1] -> setRecompensa(llaves[i]);
     }
     //Enemigos
@@ -44,11 +47,13 @@ void Juego::creaElementos(){
         rivales[i] ->setPosicion(zonas[i+1]);
     }
      //salidas de cada lugar
-    zonas[0] -> setSalida(zonas[4],zonas[2],zonas[1],zonas[3]);
-    zonas[4] -> setSalida(nullptr,zonas[0],zonas[1],nullptr );
-    zonas[1] -> setSalida(nullptr,zonas[5],nullptr,zonas[4]);
+    zonas[0] -> setSalida(zonas[4],zonas[2],zonas[1],zonas[3]); //n s e o
+    zonas[4] -> setSalida(nullptr,zonas[0],zonas[1],nullptr );   //areneros - salida a plazaPrincipal zonaJuegos
+    zonas[1] -> setSalida(nullptr,nullptr,zonas[5],zonas[4]);
     zonas[2] -> setSalida(zonas[0],nullptr,zonas[3],nullptr);
     zonas[3] -> setSalida(nullptr,nullptr,nullptr,zonas[0]);
+    zonas[5] -> setSalida(nullptr,nullptr,nullptr,zonas[1]);
+    //zonas[6] ->setSalida(nullptr,nullptr,nullptr,nullptr);
 }
 
 void Juego::creaComandos(){ 
@@ -77,13 +82,12 @@ void Juego::imprimeFin(){
 }
 
 void Juego::play(){
+    //system("cls");
     imprimeInicio();
     bool fin = false;
     while (!fin){
         while(true){
-            std::cout << "help" << std::endl;
-            Comando* comando = parser.generaComando(); //aqui truena 
-            std::cout << "help2" << std::endl;
+            Comando* comando = parser.generaComando();
             fin = procesaComando(comando);
             break;
         }
@@ -92,6 +96,7 @@ void Juego::play(){
 
 }
 
+//Proceso de los comandos segun se les llame; principalmente comandoPelea
 bool Juego::procesaComando(Comando* instruccion){
     bool vencio = false, peleo = false;
     ListaPalabras* comandos=parser.getComandos();
@@ -114,63 +119,37 @@ bool Juego::procesaComando(Comando* instruccion){
         comandos ->modificaComando(1,"pelea",new PeleaComando(jugador, rivales[3],pollitos[3]));
         instruccion ->ejecuta();
         peleo = true;
-    } else if (jugador->getPosicion() == zonas[5] )  {
-        comandos ->modificaComando(1,"pelea",new PeleaComando(jugador, rivales[4],new Pollos()));
-       instruccion ->ejecuta();
-       peleo = true;
-    } else {
-        std::cout<<"aaaaaaaa"<<std::endl;
+    // } else if (jugador->getPosicion() == zonas[5])  {
+    //     if(jugador->getItem(0)->getPuntos() == 100){ 
+    //         std::cout << "Ganaste" << std::endl;      
+    //         vencio = true;
+    //     } else {
+    //         std::cout << "No puedes pelear en este lugar" << std::endl;
+    //         std::cout << "Debes superar primero a los demás enemigos" << std::endl;
+    //         jugador ->setPosicion(zonas[4]);
+    //     }
+    }else {
         instruccion -> ejecuta();
         
     }
 
 
     if(peleo==true){
-        //std::string respuesta;
-        jugador -> consulta();
+        jugador -> consulta(); //consulta del personaje cada que termina una pelea; puntaje, items, ubicacion
         std::cout<<"\n--------------------------------------------------\n"<<std::endl;
-        
-        std::cout<<"\nContinua en el rescate!\n"<<std::endl;
-        //std::stringstream sstr(respuesta);
-        //std::cout<<respuesta<<std::endl;
-
-        //comandos ->modificaComando(new Inventario());
-
-        //instruccion->ejecuta();
-
-        /*
-        if (respuesta=="si"){
-            jugador->muestraInventario();
-        }
-        else {
-            return vencio;
-        }*/
-        //creaComandos();
-
-        //Comando ayuda = new Comando comandos("ayuda", "");
-
-        //Comando* comando = parser.generaComando();
-        //procesaComando(comando);
-        //instruccion -> ejecuta();
-        
-        //ListaPalabras* comandos=parser.getComandos();
-        //->();
-        
+        std::cout<<"Sigue explorando!"<<std::endl;  
+        if(jugador->getItem(0)->getPuntos() == 100){
+            jugador ->setPosicion(zonas[5]);
+            std::cout << "\nGANASTE" << std::endl;      
+            std::cout << "\nFELICIDADES\n" << std::endl;   
+            std::cout << "Presiona una tecla para continuar" <<std::endl;   
+            vencio = true;
+            system("pause");
+        } 
     }
-   // else{
-        
-    //}
 
-    if(jugador->getPosicion()==zonas[5]){
-
-            if(jugador->getPuntaje() >= 400){//movi la condicion MARY
-                 vencio = true;
-            } else {
-                jugador -> setPosicion(zonas[0]);
-            }
-        }
+    //condicion para terminar el juego(principalmente en la zona final)
     peleo =false;
-    std::cout << "g" << std::endl;
     return vencio;
 }
 

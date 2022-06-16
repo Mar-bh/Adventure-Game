@@ -21,7 +21,6 @@ void ListaPalabras::modificaComando(int pos, std::string pal, Comando* com){
     comandos[pos] = com;
 }
 
-//duda implementar excepciones
 Comando* ListaPalabras::getComando(std::string pal){
     int pos=esComando(pal);
     if(pos>=0){
@@ -37,6 +36,6 @@ std::string ListaPalabras::todosLosComandos(){
     for(std::string &pal:palabras){
         todos += "\t"+ pal + "\n";
     }
-    todos+= "\t-> El comando de ayuda consiste en una sola palabra. \n\t-> Los otros comandos van seguido de una segunda palabra.";
+    todos+= "\t-> El comando de movimiento consiste en dos palabras. \n\t-> Los otros comandos no van seguido de una segunda palabra.";
     return todos;
 }
