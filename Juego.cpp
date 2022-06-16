@@ -69,8 +69,10 @@ void Juego::imprimeInicio(){
 
 void Juego::imprimeFin(){
     std::cout << "Gracias por jugar" << std::endl;
+    std::cout << jugador->getNombre() << "Has rescatado a todos los pollos!!!"<<std::endl;
     std::cout << "Estatus final -----" << std::endl;
     jugador ->consulta();
+    jugador -> muestraInventario();
     std::cout << "FIN" << std::endl;
 }
 
@@ -116,11 +118,6 @@ bool Juego::procesaComando(Comando* instruccion){
         comandos ->modificaComando(1,"pelea",new PeleaComando(jugador, rivales[4],new Pollos()));
        instruccion ->ejecuta();
        peleo = true;
-        if(jugador->getPuntaje() >= 400){//movi la condicion MARY
-                 vencio = true;
-            } else {
-                jugador -> setPosicion(zonas[0]);
-            } 
     } else {
         std::cout<<"aaaaaaaa"<<std::endl;
         instruccion -> ejecuta();
@@ -166,14 +163,14 @@ bool Juego::procesaComando(Comando* instruccion){
         
     //}
 
-   /* if(jugador->getPosicion()==zonas[5]){
+    if(jugador->getPosicion()==zonas[5]){
 
             if(jugador->getPuntaje() >= 400){//movi la condicion MARY
                  vencio = true;
             } else {
                 jugador -> setPosicion(zonas[0]);
             }
-        }*/
+        }
     peleo =false;
     std::cout << "g" << std::endl;
     return vencio;

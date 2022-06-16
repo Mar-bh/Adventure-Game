@@ -4,6 +4,7 @@
 #include "Personaje.h"
 #include "Enemigo.h"
 #include "Comando.h"
+#include "Pollos.h"
 
 class PeleaComando:public Comando{
     public:
@@ -13,6 +14,7 @@ class PeleaComando:public Comando{
         Personaje* jugador;
         Enemigo* rival;
         Personaje* pollo;
+
 };
 
 #endif
