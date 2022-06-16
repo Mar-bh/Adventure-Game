@@ -52,9 +52,9 @@ void PeleaComando::ejecuta(){
             Item* temporal = jugador ->getItem(0);
             Item suma = *inicial + *temporal;
             jugador -> getItem(0)-> setPuntos(suma.getPuntos());
-            std::cout << "Prueba " << std::endl;
-            std::cout << jugador -> getPosicion()->getRecompensa(0) -> getItem() << std::endl;
-            std::cout << jugador -> getPosicion()->getRecompensa(0) -> getPuntos() << std::endl;
+            // std::cout << "Prueba " << std::endl;
+            // std::cout << jugador -> getPosicion()->getRecompensa(0) -> getItem() << std::endl;
+            // std::cout << jugador -> getPosicion()->getRecompensa(0) -> getPuntos() << std::endl;
             std::cout <<"Por derrotar al enemigo ahora tienes una llave de: " << jugador ->getItem(0)->getPuntos() << " puntos" << std::endl;
             jugador -> agregaItems(pollo ->getItem(0));
             jugador ->getPosicion() ->sacarRecompensa(0);

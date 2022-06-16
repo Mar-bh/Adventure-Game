@@ -16,7 +16,7 @@ void Juego::creaElementos(){
     zonas[3]= new Lugar("Aqui vienen a un picnic",0); //zonaPicnic 
     zonas[4]= new Lugar("Zona para jugar con la arena",0); //areneros
     zonas[5]= new Lugar("Uy, un arbol caido. Zona final",4); //arbol caido
-    zonas[6] = new Lugar("Salida",0);
+    //zonas[6] = new Lugar("Salida",0);
 
     //personaje
     jugador = new Personaje("Nico",0,zonas[0]);
@@ -47,13 +47,13 @@ void Juego::creaElementos(){
         rivales[i] ->setPosicion(zonas[i+1]);
     }
      //salidas de cada lugar
-    zonas[0] -> setSalida(zonas[4],zonas[2],zonas[1],zonas[3]);
-    zonas[4] -> setSalida(nullptr,zonas[0],zonas[1],nullptr );
-    zonas[1] -> setSalida(nullptr,zonas[5],nullptr,zonas[4]);
+    zonas[0] -> setSalida(zonas[4],zonas[2],zonas[1],zonas[3]); //n s e o
+    zonas[4] -> setSalida(nullptr,zonas[0],zonas[1],nullptr );   //areneros - salida a plazaPrincipal zonaJuegos
+    zonas[1] -> setSalida(nullptr,nullptr,zonas[5],zonas[4]);
     zonas[2] -> setSalida(zonas[0],nullptr,zonas[3],nullptr);
     zonas[3] -> setSalida(nullptr,nullptr,nullptr,zonas[0]);
-    zonas[5] -> setSalida(nullptr,zonas[6],nullptr,nullptr);
-    zonas[6] ->setSalida(nullptr,nullptr,nullptr,nullptr);
+    zonas[5] -> setSalida(nullptr,nullptr,nullptr,zonas[1]);
+    //zonas[6] ->setSalida(nullptr,nullptr,nullptr,nullptr);
 }
 
 void Juego::creaComandos(){ 
@@ -82,6 +82,7 @@ void Juego::imprimeFin(){
 }
 
 void Juego::play(){
+    //system("cls");
     imprimeInicio();
     bool fin = false;
     while (!fin){
@@ -118,15 +119,16 @@ bool Juego::procesaComando(Comando* instruccion){
         comandos ->modificaComando(1,"pelea",new PeleaComando(jugador, rivales[3],pollitos[3]));
         instruccion ->ejecuta();
         peleo = true;
-    } else if (jugador->getPosicion() == zonas[5] && jugador->getItem(0)->getPuntos() == 100)  {
-        comandos ->modificaComando(1,"pelea",new PeleaComando(jugador, rivales[4],new Pollos()));
-        instruccion ->ejecuta();
-        peleo = true;
-    } else if((jugador->getPosicion() == zonas[5] && jugador->getItem(0)->getPuntos() < 100) ){
-        std::cout << "No puedes pelear en este lugar" << std::endl;
-        std::cout << "Debes superar primero a los demás enemigos" << std::endl;
+    // } else if (jugador->getPosicion() == zonas[5])  {
+    //     if(jugador->getItem(0)->getPuntos() == 100){ 
+    //         std::cout << "Ganaste" << std::endl;      
+    //         vencio = true;
+    //     } else {
+    //         std::cout << "No puedes pelear en este lugar" << std::endl;
+    //         std::cout << "Debes superar primero a los demás enemigos" << std::endl;
+    //         jugador ->setPosicion(zonas[4]);
+    //     }
     }else {
-        //std::cout<<"aaaaaaaa"<<std::endl;
         instruccion -> ejecuta();
         
     }
@@ -135,31 +137,19 @@ bool Juego::procesaComando(Comando* instruccion){
     if(peleo==true){
         jugador -> consulta(); //consulta del personaje cada que termina una pelea; puntaje, items, ubicacion
         std::cout<<"\n--------------------------------------------------\n"<<std::endl;
-        std::cout<<"Sigue explorando!"<<std::endl;
-        //Checar para inventario
-        //std::cout<<"\nQuieres ver los Items de tu inventario?\nEscribe si o no\n"<<std::endl;
-        //std::stringstream sstr(respuesta);
-        //std::cout<<respuesta<<std::endl;
-        //comandos ->modificaComando(new Inventario());
-        //instruccion->ejecuta();
-        /*
-        if (respuesta=="si"){
-            jugador->muestraInventario();
-        }
-        else {
-            return vencio;
-        }*/     
+        std::cout<<"Sigue explorando!"<<std::endl;  
+        if(jugador->getItem(0)->getPuntos() == 100){
+            jugador ->setPosicion(zonas[5]);
+            std::cout << "\nGANASTE" << std::endl;      
+            std::cout << "\nFELICIDADES\n" << std::endl;   
+            std::cout << "Presiona una tecla para continuar" <<std::endl;   
+            vencio = true;
+            system("pause");
+        } 
     }
 
-//condicion para terminar el juego(principalmente en la zona final)
-    if(jugador->getPosicion()==zonas[6]){
-            if(jugador->getPuntaje() >= 400){
-            } else {
-                jugador -> setPosicion(zonas[0]);
-            }
-        }
+    //condicion para terminar el juego(principalmente en la zona final)
     peleo =false;
-    //std::cout << "g" << std::endl;
     return vencio;
 }
 

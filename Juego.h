@@ -30,7 +30,7 @@ class Juego{
         Personaje* jugador;
         Pollos*  pollitos[4]; //*pollo1,*pollo2,*pollo3,*pollo4;
         Enemigo* rivales[5];//        *rival1, *rival2,*rival3,*rival4,*rivalFinal;
-        Lugar* zonas[7];  //*plazaPrincipal, *zonaJuegos, *lago, *zonaPicnic, *areneros, *arbolCaido, *salida;
+        Lugar* zonas[6];  //*plazaPrincipal, *zonaJuegos, *lago, *zonaPicnic, *areneros, *arbolCaido, *salida;
         Item* llaves[4];
         Item* objetos[4];
 
